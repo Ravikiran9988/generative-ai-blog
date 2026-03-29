@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Generative AI: The Future of Intelligent Creativity | Medicharla Ravi Kiran</title>
+<meta name="description" content="A comprehensive deep dive into Generative AI by Medicharla Ravi Kiran."/>
+<meta name="author" content="Medicharla Ravi Kiran"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--ink:#0d0d0d;--paper:#f5f0e8;--cream:#ede8dc;--accent:#c8402a;--accent2:#2a5fc8;--gold:#c9a84c;--mid:#5a5650;--rule:#c4bfb5;--green:#2d6a2d}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:17px;line-height:1.8;overflow-x:hidden;transition:background .3s,color .3s}
+/* READING BAR */
+#rbar{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0%;z-index:9999;transition:width .1s}
+/* TICKER */
+.ticker{background:#060606;border-bottom:1px solid #161616;padding:7px 0;overflow:hidden}
+.ticker-inner{display:flex;animation:tick 36s linear infinite;white-space:nowrap;width:max-content}
+.ti{display:inline-flex;align-items:center;gap:8px;padding:0 30px;font-family:'Space Mono',monospace;font-size:11px;border-right:1px solid #181818}
+.ti-l{color:#404040;text-transform:uppercase;letter-spacing:.1em}
+.ti-v{color:var(--gold);font-weight:700}
+.ti-u{color:#4a9a4a;font-size:10px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* NAV */
+nav{position:sticky;top:0;z-index:90;background:rgba(6,6,6,.97);backdrop-filter:blur(8px);border-bottom:1px solid #1a1a1a;display:flex;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#555;text-decoration:none;padding:14px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;cursor:pointer;user-select:none}
+nav a:hover,nav a.act{color:var(--gold);border-bottom-color:var(--gold)}
+/* HEADER */
+header{background:#080808;color:#f0ece4;position:relative;overflow:hidden}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
+.mast-top{border-bottom:1px solid #161616;padding:12px 40px;display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#3a3a3a}
+.ldot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.6s infinite;margin-right:5px;vertical-align:middle}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.mast-body{padding:64px 40px 52px;display:grid;grid-template-columns:1fr 300px;gap:52px;align-items:end;max-width:1180px;margin:0 auto;position:relative;z-index:1}
+.ilbl{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.ilbl::before{content:'';display:block;width:22px;height:1px;background:var(--accent)}
+h1.ht{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,70px);font-weight:900;line-height:1.05;letter-spacing:-.025em;color:#f0ece4;margin-bottom:20px}
+h1.ht em{font-style:italic;color:var(--gold)}
+.hsub{font-size:16px;color:#888;max-width:490px;line-height:1.75;margin-bottom:24px}
+.hmeta{display:flex;gap:22px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:#3a3a3a}
+.hmeta strong{color:#f0ece4}
+.aline{display:flex;align-items:center;gap:11px;margin-top:20px;padding-top:18px;border-top:1px solid #1a1a1a}
+.av{width:38px;height:38px;border-radius:50%;background:var(--gold);color:#0d0d0d;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aname{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#f0ece4}
+.arole{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#444}
+.scard{background:#0c0c0c;border:1px solid #191919;border-radius:4px;padding:24px}
+.sn{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:4px}
+.sl{font-size:12px;color:#3a3a3a;line-height:1.5;padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid #191919}
+.sl:last-child{border:none;padding:0;margin:0}
+/* LAYOUT */
+.w{max-width:800px;margin:0 auto;padding:0 36px}
+.ww{max-width:1080px;margin:0 auto;padding:0 40px}
+section{padding:76px 0;position:relative}
+section+section{border-top:1px solid var(--rule)}
+.slbl{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:15px;display:flex;align-items:center;gap:8px}
+.slbl::after{content:'';flex:1;max-width:30px;height:1px;background:var(--rule)}
+h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,40px);font-weight:700;line-height:1.14;margin-bottom:24px;letter-spacing:-.02em}
+h3{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;margin:34px 0 10px}
+p{margin-bottom:18px;color:#2a2624}
+p:last-child{margin-bottom:0}
+/* DARK/CREAM */
+.dk{background:#080808;color:#f0ece4}.dk .slbl{color:var(--gold)}.dk h2,.dk h3{color:#f0ece4}.dk p{color:#bbb}
+.cr{background:var(--cream)}
+/* PULLQUOTE */
+.pq{border-left:3px solid var(--gold);padding:17px 26px;margin:30px 0;background:rgba(201,168,76,.07)}
+.pq p{font-family:'Playfair Display',serif;font-size:19px;font-style:italic;line-height:1.55;color:var(--gold)!important;margin:0}
+/* DEF BOX */
+.dbox{background:var(--cream);border:1px solid var(--rule);border-radius:4px;padding:26px 34px;margin:30px 0;position:relative}
+.dbox::before{content:'"';font-family:'Playfair Display',serif;font-size:96px;color:var(--rule);position:absolute;top:-10px;left:16px;line-height:1;pointer-events:none}
+.dbox p{font-size:16px;font-family:'Playfair Display',serif;font-style:italic;color:var(--ink);margin:0;position:relative;z-index:1}
+/* STATS */
+.srow{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--rule);margin:34px 0}
+.ss{background:var(--paper);padding:22px 16px;text-align:center}
+.ssn{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;line-height:1;margin-bottom:5px;color:var(--ink)}
+.ssl{font-size:12px;color:var(--mid);line-height:1.45}
+/* FLOW DIAGRAM */
+.dtitle{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mid);margin-bottom:14px;display:flex;align-items:center;gap:7px}
+.dtitle::after{content:'';flex:1;height:1px;background:var(--rule)}
+.fnodes{display:flex;overflow-x:auto;gap:0}
+.fn{flex:1;min-width:104px;background:var(--cream);border:1px solid var(--rule);padding:16px 11px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative}
+.fn:not(:last-child)::after{content:'→';position:absolute;right:-11px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--accent);z-index:2;font-weight:700;background:var(--paper);padding:0 2px}
+.fn-i{width:38px;height:38px;border-radius:50%;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;font-size:16px}
+.fn-n{font-family:'Space Mono',monospace;font-size:9px;color:var(--mid);text-transform:uppercase;letter-spacing:.07em}
+.fn-nm{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:var(--ink);line-height:1.3}
+.fn-d{font-size:11px;color:var(--mid);line-height:1.4}
+/* ATTENTION */
+.abox{background:#080808;border-radius:4px;padding:26px;margin:32px 0}
+.attl{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.asub{color:#444;font-size:12px;margin-bottom:12px}
+.atoks{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
+.tok{padding:5px 10px;border-radius:3px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;border:1px solid}
+.tok.hi{background:rgba(201,168,76,.22);border-color:var(--gold);color:var(--gold)}
+.tok.md{background:rgba(44,95,200,.16);border-color:var(--accent2);color:#88aaff}
+.tok.lo{background:rgba(255,255,255,.03);border-color:#1e1e1e;color:#383838}
+.aleg{display:flex;gap:16px;flex-wrap:wrap}
+.ali{display:flex;align-items:center;gap:5px;font-size:11px;color:#555}
+.aldot{width:8px;height:8px;border-radius:2px}
+/* GAN */
+.ganwrap{display:flex;align-items:center;overflow-x:auto;margin:26px 0;border:1px solid var(--rule);border-radius:4px}
+.gb{flex:1;min-width:90px;padding:16px 10px;text-align:center}
+.gb-l{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.07em;text-transform:uppercase;opacity:.68;margin-bottom:4px}
+.gb-n{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;margin-bottom:3px}
+.gb-s{font-size:11px;opacity:.7;line-height:1.4}
+.gbn{background:#080808;color:#888}.gbg{background:var(--accent2);color:white}.gbd{background:var(--accent);color:white}.gbr{background:var(--green);color:white}.gbe{background:var(--gold);color:#080808}
+.garr{font-size:16px;color:var(--rule);flex-shrink:0;padding:0 3px}
+/* DIFFUSION */
+.difsteps{display:flex;align-items:flex-start;overflow-x:auto;margin:26px 0;gap:0}
+.ds{flex:1;min-width:65px;text-align:center;position:relative;padding:0 3px}
+.ds:not(:last-child)::after{content:'→';position:absolute;right:-7px;top:24px;font-size:11px;color:var(--accent);font-weight:700}
+.dc{width:52px;height:52px;margin:0 auto 7px;border-radius:4px;border:1px solid var(--rule)}
+.dcap{font-size:10px;font-family:'Space Mono',monospace;color:var(--mid);line-height:1.35}
+/* ARCH */
+.archcmp{display:grid;grid-template-columns:1fr 44px 1fr;gap:0;margin:30px 0;align-items:start}
+.ac{border:1px solid var(--rule);background:var(--cream)}
+.ach{padding:11px 14px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;text-align:center;color:white}
+.ach.blue{background:var(--accent2)}.ach.red{background:var(--accent)}
+.acb{padding:13px}
+.acl{border:1px solid var(--rule);border-radius:3px;padding:8px 11px;margin-bottom:5px;font-size:12px;color:var(--ink);display:flex;align-items:center;gap:7px;background:white;transition:transform .2s}
+.acl:hover{transform:translateX(3px)}
+.ald{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.acvs{display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:var(--rule)}
+/* SCALE BARS */
+.sbars{display:flex;flex-direction:column;gap:8px;margin:26px 0}
+.sbrow{display:grid;grid-template-columns:125px 1fr 76px;align-items:center;gap:11px}
+.sblbl{font-family:'Space Mono',monospace;font-size:11px;color:var(--mid);text-align:right}
+.sbwrap{background:var(--cream);border-radius:2px;height:23px;overflow:hidden}
+.sbbar{height:100%;border-radius:2px;display:flex;align-items:center;padding-left:8px;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;color:white;white-space:nowrap;width:0%;transition:width 1.1s ease}
+.sbval{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--ink)}
+/* TABLE */
+.ctab{width:100%;border-collapse:collapse;margin:30px 0;font-size:13px}
+.ctab th{background:#080808;color:#f0ece4;padding:10px 13px;text-align:left;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.ctab td{padding:10px 13px;border-bottom:1px solid var(--rule);color:var(--ink)}
+.ctab tr:nth-child(even) td{background:var(--cream)}
+.ck{color:var(--green);font-weight:700}.cx{color:var(--accent);font-weight:700}
+/* TYPES */
+.tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--rule);margin:30px 0}
+.tc{background:var(--paper);padding:26px 22px;position:relative;overflow:hidden;transition:background .2s}
+.tc:hover{background:var(--cream)}
+.tc::before{content:attr(data-n);font-family:'Playfair Display',serif;font-size:82px;font-weight:900;color:var(--rule);position:absolute;bottom:-13px;right:10px;line-height:1;pointer-events:none}
+.ttag{display:inline-block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;background:#080808;color:#f0ece4;padding:3px 7px;border-radius:2px;margin-bottom:9px}
+.tc h3{font-size:16px;margin:0 0 8px;color:var(--ink)}
+.tc p{font-size:13px;color:var(--mid);margin:0;line-height:1.6;position:relative;z-index:1}
+.tc-ex{margin-top:10px;display:flex;gap:4px;flex-wrap:wrap;position:relative;z-index:1}
+.tex{font-family:'Space Mono',monospace;font-size:9px;background:#080808;color:#f0ece4;padding:2px 6px;border-radius:9px}
+/* TECH ROWS */
+.trow{display:grid;grid-template-columns:68px 1fr;gap:16px;padding:26px 0;border-bottom:1px solid var(--rule)}
+.trow:last-child{border:none}
+.tabbr{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--accent);padding-top:3px}
+.trow h3{margin:0 0 7px;font-size:16px}
+.trow p{margin:0;font-size:14px;color:var(--mid);line-height:1.7}
+/* USE CASES */
+.ucg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule);margin:30px 0}
+.uc{background:#0a0a0a;padding:22px 18px;transition:background .2s}
+.uc:hover{background:#121212}
+.uc-e{font-size:26px;margin-bottom:9px}
+.uc h3{color:#f0ece4;font-size:15px;margin:0 0 7px}
+.uc p{color:#666;font-size:13px;margin:0;line-height:1.6}
+.uc-st{font-family:'Space Mono',monospace;font-size:10px;color:var(--accent);margin-top:8px;font-weight:700}
+/* CS BANNER */
+.csb{background:var(--accent);padding:22px 26px;display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;margin-top:2px}
+.csl{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);writing-mode:vertical-rl;transform:rotate(180deg)}
+.csb p{color:rgba(255,255,255,.88);font-size:14px;margin:0;line-height:1.65}
+.cst{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:white;white-space:nowrap}
+/* PROS CONS */
+.pcg{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--rule);margin:30px 0}
+.pros{background:#edf5ea;padding:30px 26px}.cons{background:#f5ece8;padding:30px 26px}
+..pros h3{color:var(--green)}.cons h3{color:var(--accent)}
+.cklist{list-style:none;margin-top:13px}
+.cklist li{display:flex;gap:9px;padding:10px 0;border-bottom:1px solid rgba(0,0,0,.07);font-size:14px;color:var(--ink);line-height:1.55}
+.cklist li:last-child{border:none}
+.cki{width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;margin-top:2px}
+.pros .cki{background:var(--green);color:white}.cons .cki{background:var(--accent);color:white}
+/* ETHICS */
+.ethg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0}
+.ethc{border:1px solid #1a1a1a;border-radius:4px;padding:22px;background:#0f0f0f}
+.ethc h4{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0 0 7px}
+.ethc p{color:#666;font-size:12px;margin:0 0 11px}
+.ebw{background:#1a1a1a;border-radius:2px;height:5px;margin:5px 0 3px;overflow:hidden}
+.eb{height:100%;border-radius:2px;width:0%;transition:width 1s ease}
+.elbl{display:flex;justify-content:space-between;font-size:11px;font-family:'Space Mono',monospace;color:#3a3a3a}
+/* TIMELINE */
+.tl{position:relative;padding-left:34px;margin-top:30px}
+.tl::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--accent2),var(--accent))}
+.tli{position:relative;margin-bottom:38px}
+.tli::before{content:'';position:absolute;left:-31px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--accent2);border:2px solid #080808}
+.tli-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+.tli h3{color:#f0ece4;font-size:17px;margin:0 0 7px}
+.tli p{color:#888;font-size:14px;margin:0}
+/* CALLOUT */
+.callout{border-left:3px solid var(--accent2);background:rgba(42,95,200,.07);padding:14px 20px;margin:20px 0;border-radius:0 4px 4px 0}
+.callout p{margin:0;font-size:14px;color:var(--ink)}
+/* FUTURE */
+.futurebg{background:linear-gradient(135deg,#0a0a14,#080808);position:relative;overflow:hidden}
+.futurebg::before{content:'';position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(44,95,200,.08) 0%,transparent 70%);top:-160px;right:-70px;pointer-events:none}
+/* CONCLUSION */
+.fq{font-family:'Playfair Display',serif;font-size:clamp(18px,3vw,30px);font-weight:700;line-height:1.3;color:var(--ink);margin:28px 0 20px;letter-spacing:-.01em}
+.fq em{color:var(--accent);font-style:italic}
+.sharebar{display:flex;align-items:center;gap:8px;margin:24px 0;flex-wrap:wrap}
+.shlbl{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--mid)}
+.shbtn{display:flex;align-items:center;gap:5px;padding:7px 13px;border-radius:4px;border:none;cursor:pointer;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;text-decoration:none;white-space:nowrap}
+.shbtn:hover{transform:translateY(-2px);opacity:.88}
+.shli{background:#0077b5;color:white}.shtw{background:#000;color:white}
+.shcp{background:var(--cream);color:var(--ink);border:1px solid var(--rule)}
+.shpdf{background:var(--accent);color:white}
+.ctabox{background:#080808;color:#f0ece4;padding:30px;margin-top:30px;border-radius:4px;display:flex;gap:22px;align-items:center}
+.ctaq{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;line-height:1.4;flex:1}
+.ctaq span{color:var(--gold)}
+.ctatag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:var(--accent);color:white;padding:6px 11px;border-radius:2px;white-space:nowrap}
+/* RESOURCES */
+.rgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--rule);margin:30px 0}
+.rcat{background:var(--paper);padding:22px 20px}
+.rcath{display:flex;align-items:center;gap:8px;margin-bottom:13px}
+.rico{width:30px;height:30px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.rcath h3{font-size:15px;margin:0;color:var(--ink)}
+.rlist{list-style:none}
+.rlist li{padding:7px 0;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:2px}
+.rlist li:last-child{border:none}
+.rn{font-size:13px;font-weight:500;color:var(--ink)}
+.rd{font-size:12px;color:var(--mid);line-height:1.45}
+.rtag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:7px;display:inline-block;margin-top:2px}
+.tfree{background:rgba(45,106,45,.15);color:var(--green)}.tpaid{background:rgba(200,64,42,.12);color:var(--accent)}.tbook{background:rgba(201,168,76,.2);color:#8a6f1a}.tpaper{background:rgba(42,95,200,.12);color:var(--accent2)}
+/* PROJECTS */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule);margin:30px 0}
+.pcard{background:var(--paper);padding:20px 17px;position:relative;overflow:hidden;transition:background .2s}
+.pcard:hover{background:var(--cream)}
+.plvl{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.07em;text-transform:uppercase;padding:2px 7px;border-radius:7px;display:inline-block;margin-bottom:8px}
+.lbg{background:rgba(45,106,45,.15);color:var(--green)}.lmd{background:rgba(201,168,76,.2);color:#8a6f1a}.lad{background:rgba(200,64,42,.12);color:var(--accent)}
+.pcard h3{font-size:14px;margin:0 0 6px;color:var(--ink)}
+.pcard p{font-size:12px;color:var(--mid);margin:0 0 8px;line-height:1.55;position:relative;z-index:1}
+.pstack{display:flex;gap:4px;flex-wrap:wrap;position:relative;z-index:1}
+.ps{font-family:'Space Mono',monospace;font-size:9px;background:#080808;color:#f0ece4;padding:2px 5px;border-radius:2px}
+.pnum{position:absolute;bottom:-11px;right:6px;font-family:'Playfair Display',serif;font-size:65px;font-weight:900;color:var(--rule);line-height:1;pointer-events:none}
+/* ROADMAP */
+.rmprog{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:4px;padding:15px 18px;margin-bottom:22px;display:flex;align-items:center;gap:14px}
+.rplbl{font-family:'Space Mono',monospace;font-size:11px;color:#444;white-space:nowrap}
+.rpbw{flex:1;background:#1a1a1a;border-radius:2px;height:5px;overflow:hidden}
+.rpb{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:2px;width:0%;transition:width .35s ease}
+.rppct{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);white-space:nowrap}
+.rmph{margin-bottom:30px}
+.rmphdr{display:flex;align-items:center;gap:11px;margin-bottom:13px}
+.rphnum{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;flex-shrink:0;color:white}
+.rphtit{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#f0ece4}
+.rphsub{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#444;margin-top:2px}
+.rskills{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.rsk{background:#0d0d0d;border:1px solid #181818;border-radius:4px;padding:10px 12px;display:flex;align-items:flex-start;gap:7px;transition:border-color .2s}
+.rsk:hover{border-color:#2a2a2a}
+.rchk{width:15px;height:15px;border-radius:3px;border:1px solid #2a2a2a;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;margin-top:2px;cursor:pointer;transition:all .2s;color:transparent;user-select:none}
+.rchk.done{background:var(--green);border-color:var(--green);color:white}
+.rsktxt{font-size:12px;color:#999;line-height:1.45}
+.rsktag{font-family:'Space Mono',monospace;font-size:9px;color:#2a2a2a;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+/* QUIZ */
+.qcard{background:var(--cream);border:1px solid var(--rule);border-radius:4px;padding:24px;margin-bottom:12px}
+.qnum{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.qq{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:13px;line-height:1.4}
+.qopts{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.qopt{padding:9px 12px;border:1px solid var(--rule);border-radius:4px;background:white;cursor:pointer;font-size:13px;color:var(--ink);text-align:left;transition:all .2s}
+.qopt:hover:not([disabled]){background:var(--cream);border-color:var(--gold)}
+.qopt.correct{background:rgba(45,106,45,.14);border-color:var(--green);color:var(--green)}
+.qopt.wrong{background:rgba(200,64,42,.11);border-color:var(--accent);color:var(--accent)}
+.qopt.showc{background:rgba(45,106,45,.09);border-color:var(--green)}
+.qexp{margin-top:11px;padding:9px 13px;background:rgba(201,168,76,.09);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;font-size:13px;color:var(--mid);display:none;line-height:1.6}
+.qscore{background:#080808;color:#f0ece4;border-radius:4px;padding:28px;text-align:center;display:none;margin-top:16px}
+.qsn{font-family:'Playfair Display',serif;font-size:50px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:5px}
+.qsmsg{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:#f0ece4;margin:8px 0 14px}
+.qrbtn{background:var(--accent);color:white;border:none;padding:8px 20px;border-radius:4px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+/* ASSESSMENT */
+.abox{background:#080808;border-radius:4px;padding:32px;margin:30px 0}
+.adots{display:flex;gap:4px;margin-bottom:22px}
+.adot{flex:1;height:3px;background:#1a1a1a;border-radius:2px;transition:background .3s}
+.adot.act{background:var(--gold)}.adot.dn{background:var(--green)}
+.aq{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#f0ece4;margin-bottom:5px;line-height:1.35}
+.asub{font-size:13px;color:#444;margin-bottom:18px}
+.aopts{display:flex;flex-direction:column;gap:6px}
+.aopt{background:#111;border:1px solid #1e1e1e;border-radius:4px;padding:10px 16px;cursor:pointer;font-size:13px;color:#888;transition:all .2s;text-align:left}
+.aopt:hover{border-color:var(--gold);color:var(--gold)}
+.aopt.sel{border-color:var(--accent2);background:rgba(42,95,200,.13);color:#f0ece4}
+.anav{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
+.actr{font-family:'Space Mono',monospace;font-size:11px;color:#2a2a2a}
+.anext{background:var(--gold);color:#080808;border:none;padding:8px 20px;border-radius:4px;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.anext:disabled{opacity:.3;cursor:not-allowed}
+.ares{text-align:center;display:none}
+.ar-ico{font-size:48px;margin-bottom:11px}
+.ar-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;padding:5px 14px;border-radius:11px;margin-bottom:11px}
+.ar-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold);margin-bottom:6px}
+.ar-desc{color:#777;font-size:14px;line-height:1.65;max-width:380px;margin:0 auto 16px}
+/* BOOKMARKS */
+#bmpanel{position:fixed;bottom:72px;right:16px;z-index:500;background:#0f0f0f;border:1px solid #1a1a1a;border-radius:8px;width:240px;max-height:300px;overflow-y:auto;display:none;box-shadow:0 8px 26px rgba(0,0,0,.4)}
+#bmpanel.open{display:block}
+.bmhdr{padding:10px 14px;border-bottom:1px solid #1a1a1a;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#3a3a3a;display:flex;justify-content:space-between}
+.bmhdr span{color:var(--gold)}
+.bmitem{padding:9px 14px;border-bottom:1px solid #0a0a0a;cursor:pointer;font-size:13px;color:#777;transition:background .15s;display:flex;align-items:center;gap:6px}
+.bmitem:hover{background:#161616;color:var(--gold)}
+.bmempty{padding:14px;text-align:center;color:#2a2a2a;font-size:13px}
+.bmsecbtn{position:absolute;top:11px;right:11px;background:none;border:none;cursor:pointer;font-size:16px;opacity:.2;transition:opacity .2s,transform .2s}
+.bmsecbtn:hover,.bmsecbtn.bmd{opacity:1}
+.bmsecbtn.bmd{transform:scale(1.1)}
+/* GLOSSARY */
+.gterm{border-bottom:1px dashed var(--gold);cursor:pointer;transition:color .2s}
+.gterm:hover{color:var(--gold)}
+#gpop{position:fixed;z-index:700;background:#0f0f0f;border:1px solid #2a2a2a;border-radius:6px;padding:12px 16px;max-width:280px;box-shadow:0 8px 22px rgba(0,0,0,.5);display:none;pointer-events:none}
+#gpop.open{display:block}
+#gpterm{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--gold);margin-bottom:4px}
+#gpdef{font-size:12px;color:#999;line-height:1.6}
+/* FLOAT BUTTONS */
+
+
+
+
+.fbbm{background:var(--gold);color:#080808;position:relative;cursor:pointer}
+#bmcnt{position:absolute;top:-3px;right:-3px;background:var(--accent);color:white;border-radius:50%;width:14px;height:14px;font-size:8px;display:none;align-items:center;justify-content:center;font-family:'Space Mono',monospace}
+/* TOOLS STRIP */
+.tstrip{background:var(--gold);padding:13px 40px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tsl{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.42);margin-right:6px;white-space:nowrap}
+.tpill{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;color:#080808;background:rgba(0,0,0,.1);padding:4px 10px;border-radius:11px;white-space:nowrap}
+/* FOOTER */
+footer{background:#060606;color:#2a2a2a;padding:28px 40px;display:flex;justify-content:space-between;align-items:center;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.07em;flex-wrap:wrap;gap:11px}
+footer a{color:var(--gold);text-decoration:none}
+/* FADE IN */
+.fi{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fi.vis{opacity:1;transform:none}
+/* TYPING CURSOR */
+#tcursor{display:inline-block;width:3px;height:.78em;background:var(--gold);margin-left:2px;vertical-align:middle;animation:blink .7s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+/* RESPONSIVE */
+@media(max-width:768px){
+  .mast-body,.archcmp{grid-template-columns:1fr}
+  .scard,.acvs{display:none}
+  .w,.ww{padding:0 18px}
+  .mast-top,.tstrip{padding:10px 18px}
+  .tgrid,.pcg,.ucg,.srow,.ethg,.rgrid,.pgrid,.rskills,.qopts{grid-template-columns:1fr}
+  .csb{grid-template-columns:1fr}.csl{writing-mode:unset;transform:none}
+  .ctabox{flex-direction:column}
+  footer{flex-direction:column;text-align:center;padding:22px 18px}
+}
+@media print{nav,.ticker,#gpop{display:none!important}body{font-size:12pt}}
+
+/* KEY TAKEAWAYS */
+.takeaway{background:#0d0d0d;border-radius:4px;padding:24px 28px;margin:32px 0}
+.tk-hdr{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.tk-icon{width:32px;height:32px;border-radius:50%;background:var(--gold);color:#0d0d0d;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.tk-title{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.tk-list{list-style:none}
+.tk-list li{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #1a1a1a;font-size:14px;color:#ccc;line-height:1.55}
+.tk-list li:last-child{border:none;padding-bottom:0}
+.tk-dot{color:var(--gold);flex-shrink:0;font-weight:700;margin-top:1px}
+
+/* REAL WORLD EXAMPLES */
+.rwe{border:1px solid var(--rule);border-radius:4px;margin:28px 0;overflow:hidden}
+.rwe-hdr{background:var(--ink);padding:10px 18px;display:flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.rwe-hdr span{color:#555}
+.rwe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.rwe-item{padding:16px 18px;border-right:1px solid var(--rule);border-top:1px solid var(--rule)}
+.rwe-item:last-child{border-right:none}
+.rwe-tool{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;color:var(--accent);margin-bottom:5px;text-transform:uppercase;letter-spacing:.08em}
+.rwe-desc{font-size:13px;color:var(--mid);line-height:1.55}
+.rwe-2{grid-template-columns:repeat(2,1fr)}
+
+/* MOBILE SPACING IMPROVEMENTS */
+@media(max-width:768px){
+  section{padding:52px 0}
+  h2{font-size:26px;margin-bottom:18px}
+  h3{font-size:18px;margin:26px 0 9px}
+  .rwe-grid{grid-template-columns:1fr}
+  .rwe-item{border-right:none;border-top:1px solid var(--rule)}
+  .rwe-item:first-child{border-top:none}
+  .ganwrap{gap:0}
+  .gb{min-width:80px;padding:13px 8px}
+  .gbn{font-size:12px}.gbs{font-size:10px}
+  .diffsteps{gap:0}
+  .ds{min-width:58px}
+  .dc{width:46px;height:46px}
+  .dcap{font-size:9px}
+  .fnodes{flex-wrap:nowrap;gap:0}
+  .fn{min-width:90px;padding:13px 8px}
+  .fn:not(:last-child)::after{right:-10px;font-size:12px}
+  .fnnm{font-size:11px}.fnd{font-size:10px}
+  .attntoks{gap:4px}
+  .tok{padding:4px 8px;font-size:10px}
+  .ctab{font-size:12px}
+  .ctab th{padding:8px 10px;font-size:9px}
+  .ctab td{padding:8px 10px}
+  .sbrow{grid-template-columns:90px 1fr 60px;gap:8px}
+  .sblbl{font-size:9px}
+  .sbval{font-size:9px}
+  .pcard{padding:16px 14px}
+  .rsk{padding:9px 10px}
+  .rsktxt{font-size:11px}
+  .qcard{padding:18px}
+  .qopts{grid-template-columns:1fr}
+  .csb{padding:18px 20px}
+  .pq p{font-size:17px}
+  .takeaway{padding:18px 20px}
+  .rmprog{flex-wrap:wrap;gap:10px}
+  .srow{grid-template-columns:repeat(2,1fr)}
+  .ssn{font-size:28px}
+}
+@media(max-width:400px){
+  .mhero{padding:44px 18px 36px}
+  h1.ht{font-size:30px}
+  .w,.ww{padding:0 16px}
+  .mtop{padding:10px 16px;font-size:10px}
+  .tstrip{padding:11px 16px}
+  .ganwrap{overflow-x:auto}
+}
+
+</style>
+</head>
+<body>
+<div id="rbar"></div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <div class="ti"><span class="ti-l">GenAI Market</span><span class="ti-v">$1.3T</span><span class="ti-u">↑ by 2032</span></div>
+    <div class="ti"><span class="ti-l">ChatGPT Users</span><span class="ti-v">200M+</span><span class="ti-u">↑ weekly</span></div>
+    <div class="ti"><span class="ti-l">AI Coding Share</span><span class="ti-v">40%</span><span class="ti-u">↑ global</span></div>
+    <div class="ti"><span class="ti-l">Fortune 500</span><span class="ti-v">92%</span><span class="ti-u">↑ running pilots</span></div>
+    <div class="ti"><span class="ti-l">AlphaFold</span><span class="ti-v">200M+</span><span class="ti-u">↑ proteins solved</span></div>
+    <div class="ti"><span class="ti-l">GPT-4 Params</span><span class="ti-v">~1.8T</span></div>
+    <div class="ti"><span class="ti-l">Midjourney</span><span class="ti-v">2B+</span><span class="ti-u">↑ images</span></div>
+    <div class="ti"><span class="ti-l">Copilot Code</span><span class="ti-v">46%</span><span class="ti-u">↑ completion</span></div>
+    <div class="ti"><span class="ti-l">GenAI Market</span><span class="ti-v">$1.3T</span><span class="ti-u">↑ by 2032</span></div>
+    <div class="ti"><span class="ti-l">ChatGPT Users</span><span class="ti-v">200M+</span><span class="ti-u">↑ weekly</span></div>
+    <div class="ti"><span class="ti-l">AI Coding Share</span><span class="ti-v">40%</span><span class="ti-u">↑ global</span></div>
+    <div class="ti"><span class="ti-l">Fortune 500</span><span class="ti-v">92%</span><span class="ti-u">↑ running pilots</span></div>
+    <div class="ti"><span class="ti-l">AlphaFold</span><span class="ti-v">200M+</span><span class="ti-u">↑ proteins solved</span></div>
+    <div class="ti"><span class="ti-l">GPT-4 Params</span><span class="ti-v">~1.8T</span></div>
+    <div class="ti"><span class="ti-l">Midjourney</span><span class="ti-v">2B+</span><span class="ti-u">↑ images</span></div>
+    <div class="ti"><span class="ti-l">Copilot Code</span><span class="ti-v">46%</span><span class="ti-u">↑ completion</span></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="mainnav">
+  <a data-t="intro">Intro</a><a data-t="what">What is GenAI</a><a data-t="how">How it Works</a><a data-t="types">Types</a><a data-t="tech">Technology</a><a data-t="models">Key Models</a><a data-t="usecases">Use Cases</a><a data-t="advantages">Pros &amp; Cons</a><a data-t="ethics">Ethics</a><a data-t="future">Future</a><a data-t="conclusion">Conclusion</a><a data-t="resources">Resources</a><a data-t="projects">Projects</a><a data-t="roadmap">Roadmap</a><a data-t="quiz">Quiz</a><a data-t="assessment">Assessment</a>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <div class="hgrid"></div>
+  <div class="mast-top">
+    <span>The AI Intelligence Review</span>
+    <span><span class="ldot"></span>Trending Topic</span>
+    <span>Vol. 05 &middot; 2025</span>
+  </div>
+  <div class="mast-body">
+    <div>
+      <div class="ilbl">Comprehensive Deep Dive</div>
+      <h1 class="ht">Generative AI:<br/>The Future of <em><span id="ttext">Intelligent Creativity</span><span id="tcursor"></span></em></h1>
+      <p class="hsub">From writing code to composing symphonies, diagnosing disease to drafting legislation — Generative AI is the most consequential technology shift since the internet.</p>
+      <div class="hmeta"><span><strong>35 min</strong> read</span><span><strong>March 2025</strong></span><span><strong>Technology &amp; Society</strong></span></div>
+      <div class="aline"><div class="av">MRK</div><div><div class="aname">Medicharla Ravi Kiran</div><div class="arole">AI Researcher &amp; Tech Writer</div></div></div>
+    </div>
+    <div class="scard">
+      <div class="sn">$1.3T</div><div class="sl">Projected global GenAI market by 2032</div>
+      <div class="sn">200M+</div><div class="sl">Weekly active ChatGPT users (2025)</div>
+      <div class="sn">40%</div><div class="sl">Of global coding tasks now AI-assisted</div>
+    </div>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section id="intro" class="dk">
+  <div class="w fi">
+    <div class="slbl">Introduction</div>
+    <h2>A Quiet Revolution Reshaping Everything</h2>
+    <p>Imagine waking up and asking a machine to write your morning briefing, design your presentation, debug your codebase — all before your coffee cools. This is not science fiction. This is Tuesday, 2025.</p>
+    <p>Generative AI has emerged as the most transformative technology of the decade. Unlike traditional software that follows rigid rules, generative AI <em>creates</em> — producing text, images, audio, code, and video from simple human instructions.</p>
+    <div class="pq"><p>"We are not just automating tasks. We are augmenting human imagination itself — and that changes what it means to be creative, productive, and even human."</p></div>
+    <p>The race to harness this power is global, urgent, and accelerating. Everyone is grappling with the same question: <strong style="color:var(--gold)">How do we shape this force before it shapes us?</strong></p>
+<div class="takeaway"><div class="tk-hdr"><div class="tk-icon">✦</div><span class="tk-title">Key Takeaways</span></div><ul class="tk-list"><li><span class="tk-dot">→</span><span>Generative AI creates entirely new content — rather than classifying existing data like traditional AI.</span></li><li><span class="tk-dot">→</span><span>ChatGPT reached 100M users in just 2 months — the fastest consumer product adoption in history.</span></li><li><span class="tk-dot">→</span><span>The key challenge now: shaping this technology responsibly before it reshapes society on its own terms.</span></li></ul></div><div class="rwe"><div class="rwe-hdr">🌍 Real World Examples <span>— GenAI in Daily Life</span></div><div class="rwe-grid"><div class="rwe-item"><div class="rwe-tool">ChatGPT</div><div class="rwe-desc">200M+ weekly users writing emails, debugging code, answering questions, and drafting documents.</div></div><div class="rwe-item"><div class="rwe-tool">Midjourney</div><div class="rwe-desc">Designers generate concept art and mockups in seconds instead of spending hours in Photoshop.</div></div><div class="rwe-item"><div class="rwe-tool">GitHub Copilot</div><div class="rwe-desc">Writes 46% of code in enabled files — saving developers hours of boilerplate and test writing every day.</div></div></div></div>
+  </div>
+</section>
+
+<!-- WHAT IS -->
+<section id="what">
+  <div class="w fi">
+    <div class="slbl">Definition</div>
+    <h2>What Exactly is Generative AI?</h2>
+    <div class="dbox"><p>Generative AI refers to AI systems capable of producing new, original content — text, images, audio, video, and code — by learning statistical patterns from enormous training datasets.</p></div>
+    <p>Most software has been <strong>discriminative</strong>: a spam filter decides spam or not spam. Generative AI models the distribution of data itself, learning what data looks like so thoroughly that it can create entirely new examples from scratch.</p>
+    <h3>From Perceptrons to GPT-4</h3>
+    <p>The roots stretch back decades. Early neural networks in the 1950s could barely learn simple patterns. The field experienced "AI winters" before deep learning changed everything. In 2017, Google published <em>"<span class="gterm" onclick="showG('Transformer',event)">Attention Is All You Need</span>"</em> — introducing the architecture underpinning every major LLM today.</p>
+    <p>ChatGPT launched November 2022 and reached 100 million users in 2 months — the fastest consumer product adoption in history.</p>
+<div class="takeaway"><div class="tk-hdr"><div class="tk-icon">✦</div><span class="tk-title">Key Takeaways</span></div><ul class="tk-list"><li><span class="tk-dot">→</span><span>Generative AI models data distributions — learning patterns so deeply it can synthesize entirely new examples from scratch.</span></li><li><span class="tk-dot">→</span><span>The Transformer (2017) is the single most important AI architecture — it powers GPT-4, Claude, Gemini, and all major LLMs.</span></li><li><span class="tk-dot">→</span><span>Scale was the unexpected key — bigger models on more data unlocked emergent capabilities nobody explicitly programmed.</span></li></ul></div><div class="rwe"><div class="rwe-hdr">🌍 Real World Examples <span>— Historical Breakthroughs</span></div><div class="rwe-grid"><div class="rwe-item"><div class="rwe-tool">GPT-3 (2020)</div><div class="rwe-desc">First model to write convincing essays and generate working code — 175B parameters trained on internet text.</div></div><div class="rwe-item"><div class="rwe-tool">ChatGPT (2022)</div><div class="rwe-desc">Conversational interface around GPT-3.5, reaching 100M users in 2 months and proving mass-market AI had arrived.</div></div><div class="rwe-item"><div class="rwe-tool">AlphaFold (2020)</div><div class="rwe-desc">Solved the 50-year protein folding problem — predicting 200M+ structures and transforming drug discovery.</div></div></div></div>
+    <div class="srow">
+      <div class="ss"><div class="ssn">2017</div><div class="ssl">Year the Transformer was introduced by Google</div></div>
+      <div class="ss"><div class="ssn">2 mo.</div><div class="ssl">How long ChatGPT took to reach 100M users</div></div>
+      <div class="ss"><div class="ssn">~1.8T</div><div class="ssl">Estimated parameters in GPT-4</div></div>
+      <div class="ss"><div class="ssn">92%</div><div class="ssl">Fortune 500 running GenAI pilots within 1 year</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how" class="cr">
+  <div class="ww fi">
+    <div class="slbl">Mechanics</div>
+    <h2>How Does Generative AI Work?</h2>
+    <div class="dtitle" style="margin-top:26px">The GenAI Pipeline — From Data to Output</div>
+    <div class="fnodes">
+      <div class="fn"><div class="fn-i">📦</div><div class="fn-n">Step 01</div><div class="fn-nm">Raw Data</div><div class="fn-d">Text, images, code from internet &amp; curated datasets</div></div>
+      <div class="fn"><div class="fn-i">🧹</div><div class="fn-n">Step 02</div><div class="fn-nm">Tokenization</div><div class="fn-d">Text split into tokens; images into patches</div></div>
+      <div class="fn"><div class="fn-i">🧠</div><div class="fn-n">Step 03</div><div class="fn-nm">Pre-training</div><div class="fn-d">Model predicts next token across trillions of examples</div></div>
+      <div class="fn"><div class="fn-i">🎯</div><div class="fn-n">Step 04</div><div class="fn-nm"><span class="gterm" onclick="showG('RLHF',event)">RLHF</span></div><div class="fn-d">Human feedback aligns model to be helpful &amp; safe</div></div>
+      <div class="fn"><div class="fn-i">⚡</div><div class="fn-n">Step 05</div><div class="fn-nm">Inference</div><div class="fn-d">Model served via API; generates outputs in ms</div></div>
+    </div>
+    <div class="w" style="padding:0;margin-top:26px">
+      <h3>Transformer Self-Attention — Visualized</h3>
+      <div class="abox">
+        <div class="attl">▸ How the model weighs context when predicting the next word</div>
+        <div class="asub">Predicting blank in "The cat sat on the ___" — gold=high attention, blue=medium, gray=low</div>
+        <div class="atoks">
+          <span class="tok hi">The</span><span class="tok hi">cat</span><span class="tok md">sat</span><span class="tok md">on</span><span class="tok lo">the</span><span class="tok hi">mat</span><span class="tok lo">.</span><span class="tok md">It</span><span class="tok lo">was</span><span class="tok lo">a</span><span class="tok hi">warm</span><span class="tok md">afternoon</span><span class="tok lo">when</span><span class="tok hi">the</span><span class="tok hi">cat</span><span class="tok lo">decided</span><span class="tok hi">to</span><span class="tok hi">___</span>
+        </div>
+        <div class="aleg">
+          <div class="ali"><div class="aldot" style="background:var(--gold)"></div>High attention</div>
+          <div class="ali"><div class="aldot" style="background:var(--accent2)"></div>Medium</div>
+          <div class="ali"><div class="aldot" style="background:#1e1e1e"></div>Low</div>
+        </div>
+      </div>
+      <p>The <span class="gterm" onclick="showG('Transformer',event)">Transformer's</span> self-attention allows the model to weigh the relevance of every token against every other — enabling coherence across thousands of words, something previous architectures fundamentally struggled with.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TYPES -->
+<section id="types">
+  <div class="ww fi">
+    <div class="slbl">Taxonomy</div>
+    <h2>The Four Pillars of Generative AI</h2>
+    <div class="tgrid">
+      <div class="tc" data-n="01"><span class="ttag">Language</span><h3>Text Generation</h3><p><span class="gterm" onclick="showG('LLM',event)">Large Language Models</span> generate human-quality prose, answer questions, translate languages, reason through complex problems, and write functional code.</p><div class="tc-ex"><span class="tex">ChatGPT</span><span class="tex">Claude</span><span class="tex">Gemini</span><span class="tex">Llama 3</span></div></div>
+      <div class="tc" data-n="02"><span class="ttag">Vision</span><h3>Image Generation</h3><p>Diffusion models and <span class="gterm" onclick="showG('GAN',event)">GANs</span> synthesize photorealistic images from text prompts — disrupting graphic design, advertising, and creative workflows worldwide.</p><div class="tc-ex"><span class="tex">Midjourney</span><span class="tex">DALL·E 3</span><span class="tex">Stable Diffusion</span><span class="tex">Firefly</span></div></div>
+      <div class="tc" data-n="03"><span class="ttag">Audio</span><h3>Audio &amp; Music Generation</h3><p>Audio models produce original music, realistic voice clones, sound effects, and transcribe speech with near-human accuracy in 95+ languages.</p><div class="tc-ex"><span class="tex">Suno</span><span class="tex">ElevenLabs</span><span class="tex">Udio</span><span class="tex">Whisper</span></div></div>
+      <div class="tc" data-n="04"><span class="ttag">Engineering</span><h3>Code Generation</h3><p>Code LLMs write functions, applications, suggest bug fixes, explain codebases, generate test suites, and architect systems from natural language specs.</p><div class="tc-ex"><span class="tex">GitHub Copilot</span><span class="tex">Cursor</span><span class="tex">Claude Code</span><span class="tex">CodeWhisperer</span></div></div>
+    
+    <div class="takeaway">
+      <div class="tk-hdr"><div class="tk-icon">✦</div><span class="tk-title">Key Takeaways</span></div>
+      <ul class="tk-list"><li><span class="tk-dot">→</span><span>Text generation is the most mature — LLMs like Claude and GPT-4 can now reason, code, translate, and write at expert level.</span></li><li><span class="tk-dot">→</span><span>Image generation crossed a quality threshold in 2022 — Midjourney v5+ produces images indistinguishable from photography.</span></li><li><span class="tk-dot">→</span><span>Code generation is the highest-ROI use case today — developers report 30–55% productivity gains with AI coding assistants.</span></li></ul>
+    </div>
+    <div class="rwe">
+      <div class="rwe-hdr">🌍 Real World Examples <span>— Modality Breakdown — Who Uses What</span></div>
+      <div class="rwe-grid"><div class="rwe-item"><div class="rwe-tool">Netflix</div><div class="rwe-desc">Uses AI image generation to personalize thumbnail artwork for each user — increasing click-through rates significantly.</div></div><div class="rwe-item"><div class="rwe-tool">Duolingo</div><div class="rwe-desc">Uses GPT-4 to power its AI tutor Duolingo Max — explaining answers and role-playing conversations in 40+ languages.</div></div><div class="rwe-item"><div class="rwe-tool">Cursor / GitHub</div><div class="rwe-desc">Code generation tools now write boilerplate, tests, and docs — changing what it means to be a software engineer.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section id="tech" class="cr">
+  <div class="w fi">
+    <div class="slbl">Under the Hood</div>
+    <h2>Core Technologies</h2>
+    <div class="dtitle" style="margin-top:26px">GAN — Adversarial Training Loop</div>
+    <div class="ganwrap">
+      <div class="gb gbn"><div class="gb-l">Input</div><div class="gb-n">Random Noise</div><div class="gb-s">Gaussian vector z</div></div>
+      <div class="garr">→</div>
+      <div class="gb gbg"><div class="gb-l">Network A</div><div class="gb-n">Generator G</div><div class="gb-s">Creates fakes; tries to fool D</div></div>
+      <div class="garr">→</div>
+      <div class="gb gbd"><div class="gb-l">Network B</div><div class="gb-n">Discriminator D</div><div class="gb-s">Detects fakes; trains G by failing</div></div>
+      <div class="garr">↕</div>
+      <div class="gb gbr"><div class="gb-l">Training Set</div><div class="gb-n">Real Data</div><div class="gb-s">Ground truth examples</div></div>
+      <div class="garr">→</div>
+      <div class="gb gbe"><div class="gb-l">Result</div><div class="gb-n">Nash Equilibrium</div><div class="gb-s">Indistinguishable outputs</div></div>
+    </div>
+    <div class="dtitle" style="margin-top:30px">Diffusion Model — Denoising Steps</div>
+    <div class="difsteps">
+      <div class="ds"><svg class="dc" viewBox="0 0 52 52"><rect width="52" height="52" fill="#f5f0e8"/><circle cx="26" cy="26" r="15" fill="#c8402a" opacity=".9"/><circle cx="19" cy="20" r="5" fill="#e8926e" opacity=".7"/></svg><div class="dcap">Clean Image x₀</div></div>
+      <div class="ds"><svg class="dc" viewBox="0 0 52 52"><rect width="52" height="52" fill="#f0ece4"/><circle cx="26" cy="26" r="15" fill="#c8402a" opacity=".6"/><g opacity=".4"><circle cx="12" cy="9" r="3" fill="#555"/><circle cx="42" cy="17" r="2" fill="#555"/><circle cx="7" cy="37" r="2.5" fill="#555"/></g></svg><div class="dcap">Light t=200</div></div>
+      <div class="ds"><svg class="dc" viewBox="0 0 52 52"><rect width="52" height="52" fill="#e8e4dc"/><circle cx="26" cy="26" r="15" fill="#c8402a" opacity=".28"/><g opacity=".65"><circle cx="12" cy="9" r="4" fill="#888"/><circle cx="41" cy="17" r="3" fill="#777"/><circle cx="7" cy="37" r="3" fill="#999"/><circle cx="45" cy="44" r="3" fill="#666"/></g></svg><div class="dcap">Medium t=500</div></div>
+      <div class="ds"><svg class="dc" viewBox="0 0 52 52"><rect width="52" height="52" fill="#ddd"/><g opacity=".9"><circle cx="7" cy="7" r="5" fill="#aaa"/><circle cx="20" cy="11" r="4" fill="#bbb"/><circle cx="38" cy="8" r="6" fill="#999"/><circle cx="4" cy="27" r="5" fill="#bbb"/><circle cx="27" cy="32" r="7" fill="#888"/><circle cx="47" cy="37" r="5" fill="#aaa"/></g></svg><div class="dcap">Heavy t=800</div></div>
+      <div class="ds"><svg class="dc" viewBox="0 0 52 52"><rect width="52" height="52" fill="#ccc"/><g><circle cx="6" cy="6" r="4" fill="#aaa" opacity=".8"/><circle cx="17" cy="4" r="5" fill="#bbb" opacity=".8"/><circle cx="32" cy="9" r="6" fill="#999" opacity=".8"/><circle cx="48" cy="7" r="4" fill="#aaa" opacity=".8"/><circle cx="4" cy="20" r="5" fill="#bbb" opacity=".8"/><circle cx="17" cy="26" r="7" fill="#888" opacity=".8"/><circle cx="37" cy="21" r="5" fill="#aaa" opacity=".8"/><circle cx="11" cy="41" r="6" fill="#999" opacity=".8"/><circle cx="29" cy="47" r="5" fill="#aaa" opacity=".8"/><circle cx="48" cy="44" r="5" fill="#bbb" opacity=".8"/></g></svg><div class="dcap">Pure Noise xT</div></div>
+    </div>
+    <div class="callout"><p><strong>Key insight:</strong> At generation time, a diffusion model starts from pure noise and iteratively denoises — guided by a text prompt — until a coherent image emerges. Every step removes a little noise and adds a little structure.</p></div>
+    <div class="trow"><div class="tabbr">LLM</div><div><h3>Large Language Models</h3><p><span class="gterm" onclick="showG('LLM',event)">LLMs</span> are Transformer-based networks trained on trillions of tokens. They learn by predicting the next token, but from this simple objective, extraordinary generalization emerges — including multi-step reasoning and code generation that appear suddenly at sufficient scale.</p></div></div>
+    <div class="trow"><div class="tabbr">GAN</div><div><h3>Generative Adversarial Networks</h3><p>Invented by Ian Goodfellow in 2014. The Generator learns to produce convincing fakes by studying the Discriminator's failures. At Nash equilibrium, outputs are indistinguishable from real data. GANs produced the first photorealistic synthetic human faces.</p></div></div>
+    <div class="trow"><div class="tabbr">DM</div><div><h3><span class="gterm" onclick="showG('Diffusion Model',event)">Diffusion Models</span></h3><p>The technology behind DALL·E 3 and Midjourney. They learn to reverse a stochastic noising process. At generation time they start from pure Gaussian noise and iteratively refine it — guided by an encoded text prompt — until a coherent image emerges.</p></div></div>
+    <div class="trow"><div class="tabbr">RLHF</div><div><h3><span class="gterm" onclick="showG('RLHF',event)">Reinforcement Learning from Human Feedback</span></h3><p>Raw pre-trained models continue patterns without concern for helpfulness. RLHF trains a reward model on human preference data, then fine-tunes the LLM via PPO to maximize reward — transforming raw capability into a genuinely helpful assistant.</p></div></div>
+    <div class="trow"><div class="tabbr">RAG</div><div><h3><span class="gterm" onclick="showG('RAG',event)">Retrieval-Augmented Generation</span></h3><p>RAG addresses LLMs' knowledge cutoff and <span class="gterm" onclick="showG('Hallucination',event)">hallucination</span> tendency by grounding generation in retrieved documents. Before generating, a RAG system searches a knowledge base and injects relevant context into the prompt.</p></div></div>
+  </div>
+</section>
+
+<!-- MODELS -->
+<section id="models" class="dk">
+  <div class="ww fi">
+    <div class="slbl">Landscape</div>
+    <h2>Key Models Shaping the GenAI Era</h2>
+    <div class="dtitle" style="color:#3a3a3a;margin-top:26px">▸ Relative Scale — Major Language Models</div>
+    <div class="sbars" id="scaleBars">
+      <div class="sbrow"><div class="sblbl">GPT-4 (est.)</div><div class="sbwrap"><div class="sbbar" data-w="100%" style="background:var(--accent2)">~1.8T params</div></div><div class="sbval">~1.8T</div></div>
+      <div class="sbrow"><div class="sblbl">Gemini Ultra</div><div class="sbwrap"><div class="sbbar" data-w="55%" style="background:#7b52ab">~540B</div></div><div class="sbval">~540B</div></div>
+      <div class="sbrow"><div class="sblbl">Claude 3 Opus</div><div class="sbwrap"><div class="sbbar" data-w="43%" style="background:var(--gold)">~200B+</div></div><div class="sbval">~200B+</div></div>
+      <div class="sbrow"><div class="sblbl">Llama 3 (405B)</div><div class="sbwrap"><div class="sbbar" data-w="40%" style="background:var(--accent)">405B</div></div><div class="sbval">405B</div></div>
+      <div class="sbrow"><div class="sblbl">Mixtral 8x22B</div><div class="sbwrap"><div class="sbbar" data-w="20%" style="background:var(--green)">141B</div></div><div class="sbval">141B</div></div>
+      <div class="sbrow"><div class="sblbl">GPT-3.5</div><div class="sbwrap"><div class="sbbar" data-w="10%" style="background:#555">175B</div></div><div class="sbval">175B</div></div>
+    </div>
+    <div class="dtitle" style="color:#3a3a3a;margin-top:36px">▸ LLM vs. Diffusion Architecture</div>
+    <div class="archcmp">
+      <div class="ac"><div class="ach blue">Large Language Model</div><div class="acb">
+        <div class="acl"><div class="ald" style="background:var(--accent2)"></div>Tokenizer (BPE / SentencePiece)</div>
+        <div class="acl"><div class="ald" style="background:var(--accent2)"></div>Token Embeddings + Positional Encoding</div>
+        <div class="acl"><div class="ald" style="background:var(--accent2)"></div>Transformer Blocks × N (Attention + FFN)</div>
+        <div class="acl"><div class="ald" style="background:var(--accent2)"></div>Layer Normalization</div>
+        <div class="acl"><div class="ald" style="background:var(--accent2)"></div>Linear Projection → Vocabulary</div>
+        <div class="acl" style="background:rgba(44,95,200,.07)"><div class="ald" style="background:var(--gold)"></div><em>Output: Text tokens</em></div>
+      </div></div>
+      <div class="acvs">vs</div>
+      <div class="ac"><div class="ach red">Diffusion Model</div><div class="acb">
+        <div class="acl"><div class="ald" style="background:var(--accent)"></div>Text Prompt → CLIP / T5 Encoder</div>
+        <div class="acl"><div class="ald" style="background:var(--accent)"></div>Gaussian Noise Initialization</div>
+        <div class="acl"><div class="ald" style="background:var(--accent)"></div>U-Net conditioned on text embedding</div>
+        <div class="acl"><div class="ald" style="background:var(--accent)"></div>DDPM / DDIM Scheduler (T iterations)</div>
+        <div class="acl"><div class="ald" style="background:var(--accent)"></div>VAE Decoder (Latent → Pixels)</div>
+        <div class="acl" style="background:rgba(200,64,42,.07)"><div class="ald" style="background:var(--gold)"></div><em>Output: Generated image</em></div>
+      </div></div>
+    </div>
+    <div class="dtitle" style="color:#3a3a3a;margin-top:36px">▸ Leading Models — Feature Comparison</div>
+    <table class="ctab">
+      <thead><tr><th>Model</th><th>Creator</th><th>Modality</th><th>Open Source</th><th>Multimodal</th><th>Standout</th></tr></thead>
+      <tbody>
+        <tr><td><strong>GPT-4o</strong></td><td>OpenAI</td><td>Text+Image</td><td class="cx">✗</td><td class="ck">✓</td><td>Real-time voice + vision</td></tr>
+        <tr><td><strong>Claude 3.5 Sonnet</strong></td><td>Anthropic</td><td>Text+Image</td><td class="cx">✗</td><td class="ck">✓</td><td>Reasoning, 200k context</td></tr>
+        <tr><td><strong>Gemini 1.5 Ultra</strong></td><td>Google</td><td>Text+Image+Video</td><td class="cx">✗</td><td class="ck">✓</td><td>1M token context</td></tr>
+        <tr><td><strong>Llama 3 (405B)</strong></td><td>Meta</td><td>Text</td><td class="ck">✓</td><td class="cx">✗</td><td>Largest open-weight model</td></tr>
+        <tr><td><strong>Midjourney v6</strong></td><td>Midjourney</td><td>Image</td><td class="cx">✗</td><td class="cx">✗</td><td>Highest photorealism</td></tr>
+        <tr><td><strong>Sora</strong></td><td>OpenAI</td><td>Video</td><td class="cx">✗</td><td class="cx">✗</td><td>60-sec coherent video</td></tr>
+        <tr><td><strong>Stable Diffusion 3</strong></td><td>Stability AI</td><td>Image</td><td class="ck">✓</td><td class="cx">✗</td><td>Open-source, local deploy</td></tr>
+        <tr><td><strong>ElevenLabs v2</strong></td><td>ElevenLabs</td><td>Audio</td><td class="cx">✗</td><td class="cx">✗</td><td>Voice clone from 1 min</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section id="usecases">
+  <div class="ww fi">
+    <div class="slbl">Applications</div>
+    <h2>Where Generative AI is Already at Work</h2>
+    <div class="ucg">
+      <div class="uc"><div class="uc-e">✍️</div><h3>Content &amp; Marketing</h3><p>Blog posts, ad copy, social media, video scripts — AI drafts at scale. Agencies report 60–70% time savings on first drafts.</p><div class="uc-st">↑ 67% faster production</div></div>
+      <div class="uc"><div class="uc-e">🩺</div><h3>Healthcare</h3><p>AI analyzes medical imaging, drafts clinical notes, and modeled protein structures. AlphaFold solved the 50-year protein folding problem.</p><div class="uc-st">200M+ proteins predicted</div></div>
+      <div class="uc"><div class="uc-e">🎓</div><h3>Education</h3><p>AI tutors provide Socratic guidance at zero marginal cost. They adapt difficulty, explain concepts multiple ways, support 95+ languages.</p><div class="uc-st">Khanmigo: 1-on-1 at scale</div></div>
+      <div class="uc"><div class="uc-e">💻</div><h3>Software Development</h3><p>GitHub Copilot completes 46% of code in enabled files. Developers report 55% faster task completion on boilerplate, tests, and documentation.</p><div class="uc-st">↑ 55% faster coding</div></div>
+      <div class="uc"><div class="uc-e">⚖️</div><h3>Legal &amp; Finance</h3><p>Contract analysis, regulatory summarization, due diligence, and document drafting — what required armies of analysts now takes hours.</p><div class="uc-st">Hours → minutes</div></div>
+      <div class="uc"><div class="uc-e">🎨</div><h3>Design &amp; Creative</h3><p>Concept art, UI mockups, brand identity, architectural visualization. Designers shift from pixel-pushing to creative direction.</p><div class="uc-st">Adobe Firefly: 9B+ images</div></div>
+    </div>
+    
+    <div class="takeaway">
+      <div class="tk-hdr"><div class="tk-icon">✦</div><span class="tk-title">Key Takeaways</span></div>
+      <ul class="tk-list"><li><span class="tk-dot">→</span><span>Content and software are the two highest-adoption areas — 92% of Fortune 500 companies are already running pilots.</span></li><li><span class="tk-dot">→</span><span>Healthcare AI is the highest-stakes — AlphaFold's protein predictions could compress a decade of drug discovery into years.</span></li><li><span class="tk-dot">→</span><span>Education AI is the most equitable — a student in a rural village can now access the equivalent of a 1-on-1 expert tutor.</span></li></ul>
+    </div>
+    <div class="rwe">
+      <div class="rwe-hdr">🌍 Real World Examples <span>— Specific Company Deployments</span></div>
+      <div class="rwe-grid"><div class="rwe-item"><div class="rwe-tool">Morgan Stanley</div><div class="rwe-desc">Deployed a GPT-4 powered assistant to 16,000 financial advisors — instantly surfacing research from 100k+ documents.</div></div><div class="rwe-item"><div class="rwe-tool">Coca-Cola</div><div class="rwe-desc">Used DALL·E and Stable Diffusion to generate personalized ad creatives at scale across 200+ markets simultaneously.</div></div><div class="rwe-item"><div class="rwe-tool">Khan Academy</div><div class="rwe-desc">Built Khanmigo — a Socratic AI tutor for students and a lesson-planning assistant for teachers, powered by GPT-4.</div></div></div>
+    </div>
+    <div class="csb">
+      <div class="csl">Case Study</div>
+      <p><strong style="color:white">ChatGPT:</strong> Launched November 2022, reached 100M users in 2 months — faster than any consumer app in history. Within 12 months, 92% of Fortune 500 companies were running active GenAI pilots.</p>
+      <div class="cst">ChatGPT</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROS CONS -->
+<section id="advantages" class="cr">
+  <div class="w fi">
+    <div class="slbl">Analysis</div>
+    <h2>Advantages &amp; Challenges</h2>
+    <div class="pcg">
+      <div class="pros"><h3>Advantages</h3>
+        <ul class="cklist">
+          <li><span class="cki">✓</span><span><strong>Massive productivity gains.</strong> Tasks that took hours now take minutes. McKinsey estimates GenAI could add $2.6–4.4 trillion annually to the global economy.</span></li>
+          <li><span class="cki">✓</span><span><strong>Democratizes expertise.</strong> Anyone with internet access can access an expert tutor, legal advisor, and coding mentor — simultaneously.</span></li>
+          <li><span class="cki">✓</span><span><strong>Scientific acceleration.</strong> From drug discovery to climate modeling, AI is compressing research timelines from decades to years.</span></li>
+          <li><span class="cki">✓</span><span><strong>Augments creativity.</strong> Artists, writers, and designers use AI to explore ideas faster and push beyond previous limitations.</span></li>
+          <li><span class="cki">✓</span><span><strong>Always available.</strong> AI assistants don't sleep or tire — consistent capability around the clock, across time zones.</span></li>
+        </ul>
+      </div>
+      <div class="cons"><h3>Challenges</h3>
+        <ul class="cklist">
+          <li><span class="cki">✗</span><span><strong><span class="gterm" onclick="showG('Hallucination',event)">Hallucinations</span>.</strong> Models confidently produce plausible-sounding falsehoods. Verification is essential for high-stakes domains.</span></li>
+          <li><span class="cki">✗</span><span><strong>Bias amplification.</strong> Models trained on human data inherit and can amplify human biases — racial, gender, cultural, and ideological.</span></li>
+          <li><span class="cki">✗</span><span><strong>Deepfakes &amp; disinformation.</strong> The same technology that creates art can synthesize fake photos of real people and generate disinformation at scale.</span></li>
+          <li><span class="cki">✗</span><span><strong>Copyright ambiguity.</strong> Legal frameworks for AI-generated content remain unresolved. Ongoing litigation will shape the field for years.</span></li>
+          <li><span class="cki">✗</span><span><strong>Environmental cost.</strong> Training frontier models consumes enormous electricity — a growing and underacknowledged sustainability concern.</span></li>
+        </ul>
+      
+    <div class="takeaway">
+      <div class="tk-hdr"><div class="tk-icon">✦</div><span class="tk-title">Key Takeaways</span></div>
+      <ul class="tk-list"><li><span class="tk-dot">→</span><span>McKinsey estimates GenAI could add $2.6–4.4 trillion annually — the majority from knowledge worker productivity gains.</span></li><li><span class="tk-dot">→</span><span>Hallucination is the #1 blocker for enterprise adoption — always verify AI outputs in high-stakes domains like medicine and law.</span></li><li><span class="tk-dot">→</span><span>The workforce impact will be uneven — roles that involve pure text production are most at risk; strategic and creative roles less so.</span></li></ul>
+    </div>
+    <div class="rwe">
+      <div class="rwe-hdr">🌍 Real World Examples <span>— Challenges Playing Out Right Now</span></div>
+      <div class="rwe-grid"><div class="rwe-item"><div class="rwe-tool">NY Times vs OpenAI</div><div class="rwe-desc">Lawsuit over training data copyright — outcome will define whether AI companies can train on published content.</div></div><div class="rwe-item"><div class="rwe-tool">Stack Overflow</div><div class="rwe-desc">Traffic dropped 50%+ after ChatGPT launched — showing how quickly GenAI can disrupt information-based businesses.</div></div><div class="rwe-item"><div class="rwe-tool">Hollywood Writers Strike</div><div class="rwe-desc">2023 WGA strike explicitly addressed AI — resulting in contracts limiting AI use in scriptwriting.</div></div></div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ETHICS -->
+<section id="ethics" class="dk">
+  <div class="w fi">
+    <div class="slbl">Society &amp; Ethics</div>
+    <h2>The Ethical Landscape</h2>
+    <div class="ethg">
+      <div class="ethc">
+        <h4 style="color:var(--gold)">Algorithmic Bias Concern</h4>
+        <p>Severity across sensitive dimensions in frontier models</p>
+        <div><div class="elbl"><span>Gender representation</span><span style="color:var(--accent)">High</span></div><div class="ebw"><div class="eb" data-w="82%" style="background:var(--accent)"></div></div></div>
+        <div><div class="elbl"><span>Racial representation</span><span style="color:var(--accent)">High</span></div><div class="ebw"><div class="eb" data-w="78%" style="background:var(--accent)"></div></div></div>
+        <div><div class="elbl"><span>Cultural representation</span><span style="color:var(--gold)">Medium</span></div><div class="ebw"><div class="eb" data-w="61%" style="background:var(--gold)"></div></div></div>
+        <div><div class="elbl"><span>Political balance</span><span style="color:var(--gold)">Medium</span></div><div class="ebw"><div class="eb" data-w="53%" style="background:var(--gold)"></div></div></div>
+      </div>
+      <div class="ethc">
+        <h4 style="color:var(--accent2)">Regulatory Readiness</h4>
+        <p>How prepared are global frameworks for AI governance?</p>
+        <div><div class="elbl"><span>EU AI Act</span><span style="color:var(--accent2)">Advanced</span></div><div class="ebw"><div class="eb" data-w="75%" style="background:var(--accent2)"></div></div></div>
+        <div><div class="elbl"><span>US (federal)</span><span style="color:var(--accent)">Early stage</span></div><div class="ebw"><div class="eb" data-w="30%" style="background:var(--accent)"></div></div></div>
+        <div><div class="elbl"><span>China</span><span style="color:var(--gold)">Developing</span></div><div class="ebw"><div class="eb" data-w="50%" style="background:var(--gold)"></div></div></div>
+        <div><div class="elbl"><span>Global coordination</span><span style="color:var(--accent)">Nascent</span></div><div class="ebw"><div class="eb" data-w="18%" style="background:var(--accent)"></div></div></div>
+      </div>
+    </div>
+    <div class="callout" style="background:rgba(201,168,76,.08);border-color:var(--gold)"><p style="color:#ccc"><strong style="color:var(--gold)">The EU AI Act (2024)</strong> is the world's first comprehensive AI regulation, categorizing systems by risk level. High-risk applications in hiring, credit, and healthcare face strict transparency and oversight requirements. Violations carry fines up to 7% of global revenue.</p></div>
+    <h3>The <span class="gterm" onclick="showG('Alignment',event)">Alignment</span> Problem</h3>
+    <p style="color:#bbb">Ensuring that as AI systems become more capable, they remain robustly aligned with human values and intentions — one of the deepest open problems in AI safety. Organizations like Anthropic, the Alignment Research Center, and DeepMind safety teams are working on interpretability and scalable oversight.</p>
+  </div>
+</section>
+
+<!-- FUTURE -->
+<section id="future" class="futurebg">
+  <div class="w fi" style="position:relative;z-index:1">
+    <div class="slbl" style="color:var(--accent2)">Looking Ahead</div>
+    <h2 style="color:#f0ece4">The Future of Generative AI</h2>
+    <p style="color:#666;max-width:520px">We are in the early chapters. The trajectory suggests AI capability compounds faster than most institutions can adapt.</p>
+    <div class="tl">
+      <div class="tli"><div class="tli-tag">Near Term · 2025–2026</div><h3>Autonomous AI Agents</h3><p>Agents that browse the web, execute code, send emails, and orchestrate complex multi-step workflows. The "AI employee" is shifting from metaphor to prototype.</p></div>
+      <div class="tli"><div class="tli-tag">Near Term · 2025–2026</div><h3>Multimodal Unification</h3><p>Models that seamlessly integrate text, vision, audio, video, and action in a single system. GPT-4o's real-time voice-and-vision is an early glimpse.</p></div>
+      <div class="tli"><div class="tli-tag">Medium Term · 2027–2030</div><h3>Personalized AI Models</h3><p>AI fine-tuned on your personal data, preferences, and professional history — functioning as a genuine cognitive prosthetic.</p></div>
+      <div class="tli"><div class="tli-tag">Medium Term · 2027–2030</div><h3>Scientific Discovery at Machine Speed</h3><p>AI systems contributing as collaborators — generating hypotheses, designing experiments, and interpreting results across oncology, materials science, and climate technology.</p></div>
+      <div class="tli"><div class="tli-tag">Long Term · 2030+</div><h3>Human-AI Collaborative Ecosystems</h3><p>The most likely future: humans amplified by AI. Organizations that master human-AI teaming will dramatically outcompete those that don't.</p>
+    <div class="takeaway">
+      <div class="tk-hdr"><div class="tk-icon">✦</div><span class="tk-title">Key Takeaways</span></div>
+      <ul class="tk-list"><li><span class="tk-dot">→</span><span>Autonomous AI agents are arriving now — OpenAI Operator, Anthropic Computer Use, and Google Mariner can already take real actions.</span></li><li><span class="tk-dot">→</span><span>The most likely future is human-AI collaboration, not replacement — those who learn to work with AI will outperform those who don't.</span></li><li><span class="tk-dot">→</span><span>The governance gap is real — AI capability is advancing faster than regulation, ethics frameworks, or institutional preparedness.</span></li></ul>
+    </div>
+    <div class="rwe">
+      <div class="rwe-hdr">🌍 Real World Examples <span>— Future Signals Happening Today</span></div>
+      <div class="rwe-grid"><div class="rwe-item"><div class="rwe-tool">Devin (Cognition AI)</div><div class="rwe-desc">First AI software engineer — can plan, code, debug, and deploy entire projects autonomously from a single prompt.</div></div><div class="rwe-item"><div class="rwe-tool">Sora (OpenAI)</div><div class="rwe-desc">Generates physically consistent 60-second video clips — signaling that video generation will disrupt film and advertising.</div></div><div class="rwe-item"><div class="rwe-tool">Claude Computer Use</div><div class="rwe-desc">Anthropic's agent that controls a real computer — browsing, clicking, typing, and completing multi-step tasks autonomously.</div></div></div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section id="conclusion" class="cr">
+  <div class="w fi">
+    <div class="slbl">Final Thought</div>
+    <h2>Where Does This Leave Us?</h2>
+    <p>Generative AI is not a productivity tool with a press release. It is a fundamental restructuring of what it means to create, think, learn, and work. It compresses the distance between imagination and execution.</p>
+    <div class="pq"><p>"Every major technology has created new jobs while eliminating old ones. Generative AI is different only in the breadth and speed of that disruption."</p></div>
+    <div class="fq">The question is not whether GenAI will transform your industry. It will. The question is whether you will shape it — or be <em>shaped by it.</em></div>
+    <p>The machines can generate. The data can train. The models can deploy. Only we can decide what is worth creating, what values to embed, and what kind of future we want AI to help us build.</p>
+<div class="takeaway"><div class="tk-hdr"><div class="tk-icon">✦</div><span class="tk-title">Key Takeaways</span></div><ul class="tk-list"><li><span class="tk-dot">→</span><span>Generative AI is a fundamental restructuring of what it means to create, think, learn, and work.</span></li><li><span class="tk-dot">→</span><span>The risks are real — hallucination, bias, deepfakes, and alignment require active governance and honest engagement.</span></li><li><span class="tk-dot">→</span><span>The opportunity is extraordinary — accelerated science, democratized expertise, and human creativity amplified at scale.</span></li></ul></div>
+    <div class="sharebar">
+      <span class="shlbl">Share</span>
+      <a class="shbtn shli" href="https://www.linkedin.com/sharing/share-offsite/?url=https://medicharlaravikiran.github.io" target="_blank">🔗 LinkedIn</a>
+      <a class="shbtn shtw" href="https://twitter.com/intent/tweet?text=Amazing+GenAI+blog+by+Medicharla+Ravi+Kiran" target="_blank">𝕏 Twitter</a>
+      <button class="shbtn shcp" id="cpbtn" onclick="copyLink()">📋 Copy Link</button>
+      <button class="shbtn shpdf" onclick="window.print()">📥 Download PDF</button>
+    </div>
+    <div class="ctabox">
+      <div class="ctaq">How will <span>Generative AI</span> change your work or field in the next five years?</div>
+      <div class="ctatag">Share your view ↗</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <div class="ww fi">
+    <div class="slbl">Keep Learning</div>
+    <h2>Resources to Master Generative AI</h2>
+    <div class="rgrid">
+      <div class="rcat"><div class="rcath"><div class="rico" style="background:rgba(42,95,200,.12)">🎓</div><h3>Free Online Courses</h3></div>
+        <ul class="rlist">
+          <li><span class="rn">fast.ai — Practical Deep Learning</span><span class="rd">Best free course for coders. Hands-on deep learning from scratch.</span><span class="rtag tfree">Free</span></li>
+          <li><span class="rn">DeepLearning.AI — Generative AI for Everyone</span><span class="rd">Andrew Ng's beginner-friendly intro. No coding required.</span><span class="rtag tfree">Free</span></li>
+          <li><span class="rn">Hugging Face NLP Course</span><span class="rd">Hands-on Transformers, tokenizers, and fine-tuning.</span><span class="rtag tfree">Free</span></li>
+          <li><span class="rn">Andrej Karpathy — Neural Networks: Zero to Hero</span><span class="rd">Build GPT from scratch in Python. Best LLM course on the internet.</span><span class="rtag tfree">Free · YouTube</span></li>
+          <li><span class="rn">Stanford CS229 (YouTube)</span><span class="rd">Full Stanford ML lectures by Andrew Ng. Mathematical depth with practical insight.</span><span class="rtag tfree">Free</span></li>
+        </ul>
+      </div>
+      <div class="rcat"><div class="rcath"><div class="rico" style="background:rgba(201,168,76,.15)">📚</div><h3>Books &amp; Papers</h3></div>
+        <ul class="rlist">
+          <li><span class="rn">Attention Is All You Need (2017)</span><span class="rd">The paper that introduced the Transformer. Most important AI paper of the decade.</span><span class="rtag tpaper">Paper · Free</span></li>
+          <li><span class="rn">Deep Learning — Goodfellow, Bengio &amp; Courville</span><span class="rd">The definitive deep learning textbook. Free online version available.</span><span class="rtag tbook">Book · Free Online</span></li>
+          <li><span class="rn">Build a LLM From Scratch — Sebastian Raschka</span><span class="rd">Step-by-step guide to building your own LLM in PyTorch. Highly recommended.</span><span class="rtag tpaid">Book · Paid</span></li>
+          <li><span class="rn">Constitutional AI — Anthropic (2022)</span><span class="rd">Anthropic's paper on making AI safe through AI-assisted feedback.</span><span class="rtag tpaper">Paper · Free</span></li>
+        </ul>
+      </div>
+      <div class="rcat"><div class="rcath"><div class="rico" style="background:rgba(200,64,42,.1)">▶️</div><h3>YouTube Channels</h3></div>
+        <ul class="rlist">
+          <li><span class="rn">Andrej Karpathy</span><span class="rd">Former Tesla AI Director. Tutorials on building GPT and backprop are unmissable.</span><span class="rtag tfree">Free</span></li>
+          <li><span class="rn">3Blue1Brown — Neural Networks</span><span class="rd">Beautiful visual explanations of neural networks and gradient descent.</span><span class="rtag tfree">Free</span></li>
+          <li><span class="rn">Yannic Kilcher</span><span class="rd">Deep paper walkthroughs on the latest AI research. Great for keeping current.</span><span class="rtag tfree">Free</span></li>
+          <li><span class="rn">Two Minute Papers</span><span class="rd">Short enthusiastic summaries of the latest AI research papers.</span><span class="rtag tfree">Free</span></li>
+        </ul>
+      </div>
+      <div class="rcat"><div class="rcath"><div class="rico" style="background:rgba(45,106,45,.12)">⚙️</div><h3>GitHub Repos &amp; Tools</h3></div>
+        <ul class="rlist">
+          <li><span class="rn">Hugging Face Transformers</span><span class="rd">The go-to library for pre-trained LLMs. 500k+ models available.</span><span class="rtag tfree">huggingface.co</span></li>
+          <li><span class="rn">LangChain</span><span class="rd">Framework for building LLM-powered apps — RAG, agents, chains, memory.</span><span class="rtag tfree">github.com/langchain-ai</span></li>
+          <li><span class="rn">nanoGPT — Andrej Karpathy</span><span class="rd">Minimal GPT-2 in ~300 lines of PyTorch. Best repo to learn how LLMs work.</span><span class="rtag tfree">github.com/karpathy/nanoGPT</span></li>
+          <li><span class="rn">Ollama</span><span class="rd">Run Llama, Mistral, and other LLMs locally. Zero API costs, full privacy.</span><span class="rtag tfree">ollama.com</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="cr">
+  <div class="ww fi">
+    <div class="slbl">Build Something Real</div>
+    <h2>Generative AI Project Ideas</h2>
+    <p style="max-width:540px;color:var(--mid)">12 portfolio-worthy projects spanning all skill levels. The fastest way to learn GenAI is to build with it.</p>
+    <div class="pgrid">
+      <div class="pcard"><span class="plvl lbg">Beginner</span><h3>Personal AI Chatbot</h3><p>Build a chatbot with custom persona using the OpenAI or Claude API. Add chat history and system prompt customization.</p><div class="pstack"><span class="ps">Python</span><span class="ps">OpenAI API</span><span class="ps">Streamlit</span></div><div class="pnum">01</div></div>
+      <div class="pcard"><span class="plvl lbg">Beginner</span><h3>AI Text Summarizer</h3><p>Paste any article or PDF and get a structured summary with key points, tone analysis, and one-sentence TL;DR.</p><div class="pstack"><span class="ps">Python</span><span class="ps">LLM API</span><span class="ps">Flask</span></div><div class="pnum">02</div></div>
+      <div class="pcard"><span class="plvl lbg">Beginner</span><h3>AI Blog Generator</h3><p>Input topic, tone, audience. App generates a full structured blog post and lets you edit and export.</p><div class="pstack"><span class="ps">Python</span><span class="ps">Claude API</span><span class="ps">Gradio</span></div><div class="pnum">03</div></div>
+      <div class="pcard"><span class="plvl lbg">Beginner</span><h3>Image Caption Generator</h3><p>Upload any photo and get a creative caption generated by a multimodal AI model with multiple style options.</p><div class="pstack"><span class="ps">Python</span><span class="ps">GPT-4o Vision</span><span class="ps">Streamlit</span></div><div class="pnum">04</div></div>
+      <div class="pcard"><span class="plvl lmd">Intermediate</span><h3>RAG Document Q&amp;A</h3><p>Upload PDFs and chat with them intelligently. Uses vector embeddings + retrieval to ground answers in your documents.</p><div class="pstack"><span class="ps">LangChain</span><span class="ps">FAISS</span><span class="ps">OpenAI</span></div><div class="pnum">05</div></div>
+      <div class="pcard"><span class="plvl lmd">Intermediate</span><h3>AI Resume Analyzer</h3><p>Upload resume + job description. App scores match quality, identifies skill gaps, and rewrites bullet points.</p><div class="pstack"><span class="ps">Claude API</span><span class="ps">PyPDF2</span><span class="ps">React</span></div><div class="pnum">06</div></div>
+      <div class="pcard"><span class="plvl lmd">Intermediate</span><h3>Fine-tuned Classifier</h3><p>Fine-tune a small open-source LLM on a domain-specific dataset — product reviews, medical notes, or financial news.</p><div class="pstack"><span class="ps">PyTorch</span><span class="ps">HuggingFace</span><span class="ps">LoRA</span></div><div class="pnum">07</div></div>
+      <div class="pcard"><span class="plvl lmd">Intermediate</span><h3>AI Study Buddy</h3><p>Upload lecture notes. App generates flashcards, quizzes, and Socratic questions adapting to your knowledge level.</p><div class="pstack"><span class="ps">LangChain</span><span class="ps">OpenAI</span><span class="ps">Next.js</span></div><div class="pnum">08</div></div>
+      <div class="pcard"><span class="plvl lad">Advanced</span><h3>Research Agent</h3><p>Agent that searches the web, reads papers, synthesizes findings, and produces a structured report with citations.</p><div class="pstack"><span class="ps">LangChain Agents</span><span class="ps">Tavily</span><span class="ps">GPT-4o</span></div><div class="pnum">09</div></div>
+      <div class="pcard"><span class="plvl lad">Advanced</span><h3>Product Analyzer</h3><p>Upload a product photo + description. AI compares to competitors, generates marketing copy, and suggests pricing.</p><div class="pstack"><span class="ps">GPT-4o Vision</span><span class="ps">RAG</span><span class="ps">FastAPI</span></div><div class="pnum">10</div></div>
+      <div class="pcard"><span class="plvl lad">Advanced</span><h3>Code Review Agent</h3><p>GitHub-integrated agent that automatically reviews pull requests — identifying bugs, security issues, and suggesting fixes.</p><div class="pstack"><span class="ps">GitHub API</span><span class="ps">Claude API</span><span class="ps">Docker</span></div><div class="pnum">11</div></div>
+      <div class="pcard"><span class="plvl lad">Advanced</span><h3>Personal Knowledge Base</h3><p>Ingest your notes, bookmarks, and docs into a vector store. Build an AI that answers questions about your knowledge.</p><div class="pstack"><span class="ps">LangChain</span><span class="ps">Pinecone</span><span class="ps">Claude</span></div><div class="pnum">12</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" class="dk">
+  <div class="ww fi">
+    <div class="slbl">Your Learning Path</div>
+    <h2>GitHub Roadmap: Zero to GenAI Engineer</h2>
+    <p style="color:#777;max-width:540px;margin-bottom:28px">Curated by Medicharla Ravi Kiran. Tick off skills as you complete them.</p>
+    <div class="rmprog"><span class="rplbl">Progress</span><div class="rpbw"><div class="rpb" id="rmBar"></div></div><span class="rppct" id="rmPct">0 / 30 skills</span></div>
+    <div class="rmph"><div class="rmphdr"><div class="rphnum" style="background:var(--green)">01</div><div><div class="rphtit">Foundation — Python &amp; ML Basics</div><div class="rphsub">Weeks 1–4</div></div></div>
+      <div class="rskills">
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Python fundamentals (variables, loops, functions, OOP)</div><div class="rsktag">Language</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">NumPy, Pandas, Matplotlib for data handling</div><div class="rsktag">Data Science</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Math: linear algebra, probability &amp; statistics</div><div class="rsktag">Math</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Basic ML concepts: supervised, unsupervised, overfitting</div><div class="rsktag">ML Basics</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Git &amp; GitHub: repos, commits, pull requests</div><div class="rsktag">Tools</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Jupyter Notebooks &amp; Google Colab</div><div class="rsktag">Environment</div></div></div>
+      </div>
+    </div>
+    <div class="rmph"><div class="rmphdr"><div class="rphnum" style="background:var(--accent2)">02</div><div><div class="rphtit">Deep Learning &amp; Neural Networks</div><div class="rphsub">Weeks 5–10</div></div></div>
+      <div class="rskills">
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Neural network architecture: layers, activation, backprop</div><div class="rsktag">Deep Learning</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">PyTorch: tensors, autograd, training loops</div><div class="rsktag">Framework</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">CNNs for image understanding</div><div class="rsktag">Vision</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">RNNs and LSTMs: sequential data and text</div><div class="rsktag">Sequences</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Transformer: attention, positional encoding, encoder-decoder</div><div class="rsktag">Core Architecture</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Build a mini GPT from scratch (nanoGPT tutorial)</div><div class="rsktag">Project</div></div></div>
+      </div>
+    </div>
+    <div class="rmph"><div class="rmphdr"><div class="rphnum" style="background:var(--gold)">03</div><div><div class="rphtit">Working with LLMs &amp; APIs</div><div class="rphsub">Weeks 11–16</div></div></div>
+      <div class="rskills">
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">OpenAI / Anthropic API: completions, system prompts</div><div class="rsktag">APIs</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Prompt engineering: few-shot, chain-of-thought</div><div class="rsktag">Prompting</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">HuggingFace: load, run, evaluate open-source models</div><div class="rsktag">Open Source</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Tokenization, embeddings, and vector representations</div><div class="rsktag">Representations</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">RAG pipeline: embeddings + vector DB + retrieval + generation</div><div class="rsktag">RAG</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Build and deploy your first AI web app (Streamlit)</div><div class="rsktag">Deployment</div></div></div>
+      </div>
+    </div>
+    <div class="rmph"><div class="rmphdr"><div class="rphnum" style="background:var(--accent)">04</div><div><div class="rphtit">Advanced GenAI Engineering</div><div class="rphsub">Weeks 17–24</div></div></div>
+      <div class="rskills">
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Fine-tuning with LoRA / QLoRA on custom datasets</div><div class="rsktag">Fine-tuning</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">LangChain Agents: tool use, memory, multi-step reasoning</div><div class="rsktag">Agents</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Multimodal models: vision + language (GPT-4o, LLaVA)</div><div class="rsktag">Multimodal</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Evaluation: BLEU, ROUGE, LLM-as-judge</div><div class="rsktag">Evaluation</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">FastAPI + Docker: productionize your AI apps</div><div class="rsktag">MLOps</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">AI Safety basics: alignment, red-teaming, responsible AI</div><div class="rsktag">Safety</div></div></div>
+      </div>
+    </div>
+    <div class="rmph"><div class="rmphdr"><div class="rphnum" style="background:#7b52ab">05</div><div><div class="rphtit">Portfolio &amp; Career Launch</div><div class="rphsub">Weeks 25–30</div></div></div>
+      <div class="rskills">
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Complete 3+ portfolio projects from the Projects section</div><div class="rsktag">Portfolio</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Write technical blog posts about what you built</div><div class="rsktag">Writing</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Contribute to an open-source AI project on GitHub</div><div class="rsktag">Open Source</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">LinkedIn: highlight AI projects with live demo links</div><div class="rsktag">Personal Brand</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Prepare for AI interviews: system design + ML depth</div><div class="rsktag">Interview Prep</div></div></div>
+        <div class="rsk"><div class="rchk" onclick="tick(this)"></div><div><div class="rsktxt">Deploy a production AI app with real users 🚀</div><div class="rsktag">Launch</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="cr">
+  <div class="w fi">
+    <div class="slbl">Test Yourself</div>
+    <h2>AI Knowledge Quiz</h2>
+    <p style="color:var(--mid);margin-bottom:24px">10 questions covering everything in this blog. Correct answers reveal after each choice.</p>
+    <div id="quizWrap">
+      <div class="qcard" id="qc0"><div class="qnum">Q1 / 10</div><div class="qq">What paper introduced the Transformer architecture in 2017?</div><div class="qopts"><button class="qopt" onclick="ans(this,0,false)">"ImageNet Classification with Deep CNNs"</button><button class="qopt" onclick="ans(this,0,true)">"Attention Is All You Need" — Google</button><button class="qopt" onclick="ans(this,0,false)">"Generative Adversarial Networks" (2014)</button><button class="qopt" onclick="ans(this,0,false)">BERT: Bidirectional Transformers</button></div><div class="qexp">✦ "Attention Is All You Need" (Vaswani et al., 2017) introduced the Transformer — the architecture behind GPT-4, Claude, and Gemini.</div></div>
+      <div class="qcard" id="qc1"><div class="qnum">Q2 / 10</div><div class="qq">In a GAN, what does the Discriminator do?</div><div class="qopts"><button class="qopt" onclick="ans(this,1,false)">Generate realistic synthetic images</button><button class="qopt" onclick="ans(this,1,false)">Encode text prompts into vectors</button><button class="qopt" onclick="ans(this,1,true)">Classify inputs as real or fake to train the Generator</button><button class="qopt" onclick="ans(this,1,false)">Remove noise from corrupted images</button></div><div class="qexp">✦ The Discriminator acts as a judge — it learns to distinguish real data from fakes. The Generator improves by trying to fool it.</div></div>
+      <div class="qcard" id="qc2"><div class="qnum">Q3 / 10</div><div class="qq">What does RLHF do to a pre-trained language model?</div><div class="qopts"><button class="qopt" onclick="ans(this,2,false)">Makes it generate images faster</button><button class="qopt" onclick="ans(this,2,true)">Aligns it to be helpful and safe using human feedback</button><button class="qopt" onclick="ans(this,2,false)">Increases its parameter count</button><button class="qopt" onclick="ans(this,2,false)">Converts it into a multimodal model</button></div><div class="qexp">✦ RLHF trains a reward model on human preferences, then fine-tunes the LLM via PPO to maximize that reward — making raw models genuinely helpful.</div></div>
+      <div class="qcard" id="qc3"><div class="qnum">Q4 / 10</div><div class="qq">How long did ChatGPT take to reach 100 million users?</div><div class="qopts"><button class="qopt" onclick="ans(this,3,false)">6 months</button><button class="qopt" onclick="ans(this,3,false)">1 year</button><button class="qopt" onclick="ans(this,3,true)">2 months — fastest consumer app in history</button><button class="qopt" onclick="ans(this,3,false)">3 weeks</button></div><div class="qexp">✦ ChatGPT launched November 2022 and hit 100M users by January 2023 — surpassing TikTok and Instagram's growth records.</div></div>
+      <div class="qcard" id="qc4"><div class="qnum">Q5 / 10</div><div class="qq">What technology powers DALL·E 3 and Stable Diffusion?</div><div class="qopts"><button class="qopt" onclick="ans(this,4,false)">Generative Adversarial Networks (GANs)</button><button class="qopt" onclick="ans(this,4,true)">Diffusion Models — iterative denoising from noise to image</button><button class="qopt" onclick="ans(this,4,false)">Variational Autoencoders (VAEs)</button><button class="qopt" onclick="ans(this,4,false)">Convolutional Neural Networks (CNNs)</button></div><div class="qexp">✦ Diffusion models learn to reverse a noising process, starting from pure random noise and iteratively denoising guided by a text prompt.</div></div>
+      <div class="qcard" id="qc5"><div class="qnum">Q6 / 10</div><div class="qq">What is RAG primarily used for?</div><div class="qopts"><button class="qopt" onclick="ans(this,5,false)">Training larger models on more data</button><button class="qopt" onclick="ans(this,5,false)">Making models generate images faster</button><button class="qopt" onclick="ans(this,5,true)">Grounding LLM responses in retrieved documents to reduce hallucination</button><button class="qopt" onclick="ans(this,5,false)">Replacing the Transformer architecture</button></div><div class="qexp">✦ RAG retrieves relevant documents from a knowledge base and injects them into the prompt, grounding answers in real facts.</div></div>
+      <div class="qcard" id="qc6"><div class="qnum">Q7 / 10</div><div class="qq">AlphaFold solved which long-standing scientific problem?</div><div class="qopts"><button class="qopt" onclick="ans(this,6,false)">Climate change modeling</button><button class="qopt" onclick="ans(this,6,true)">Protein structure prediction — a 50-year unsolved problem</button><button class="qopt" onclick="ans(this,6,false)">Nuclear fusion optimization</button><button class="qopt" onclick="ans(this,6,false)">Quantum computing error correction</button></div><div class="qexp">✦ AlphaFold predicted 3D structures of 200M+ proteins with near-experimental accuracy — potentially accelerating drug discovery by decades.</div></div>
+      <div class="qcard" id="qc7"><div class="qnum">Q8 / 10</div><div class="qq">What is the "alignment problem" in AI safety?</div><div class="qopts"><button class="qopt" onclick="ans(this,7,false)">Making AI models run faster on cheaper hardware</button><button class="qopt" onclick="ans(this,7,false)">Aligning outputs of different AI models with each other</button><button class="qopt" onclick="ans(this,7,true)">Ensuring AI systems remain aligned with human values as they become more capable</button><button class="qopt" onclick="ans(this,7,false)">Matching training data to the right model architecture</button></div><div class="qexp">✦ Alignment research ensures that as AI systems grow more powerful, their goals and behaviors remain consistent with human values and intentions.</div></div>
+      <div class="qcard" id="qc8"><div class="qnum">Q9 / 10</div><div class="qq">What % of Fortune 500 companies ran GenAI pilots within a year of ChatGPT's launch?</div><div class="qopts"><button class="qopt" onclick="ans(this,8,false)">45%</button><button class="qopt" onclick="ans(this,8,false)">67%</button><button class="qopt" onclick="ans(this,8,true)">92%</button><button class="qopt" onclick="ans(this,8,false)">100%</button></div><div class="qexp">✦ 92% of Fortune 500 companies were running active GenAI pilots within 12 months of ChatGPT's release.</div></div>
+      <div class="qcard" id="qc9"><div class="qnum">Q10 / 10</div><div class="qq">Which architecture activates only a fraction of its parameters per token?</div><div class="qopts"><button class="qopt" onclick="ans(this,9,false)">RAG</button><button class="qopt" onclick="ans(this,9,true)">Mixture of Experts (MoE)</button><button class="qopt" onclick="ans(this,9,false)">LoRA</button><button class="qopt" onclick="ans(this,9,false)">VAE</button></div><div class="qexp">✦ Mixture of Experts (MoE) routes each token to a small subset of specialized sub-networks, enabling massive total parameters while keeping compute manageable.</div></div>
+      <div class="qscore" id="qScore"><div class="qsn" id="qsNum">0/10</div><div class="qsmsg" id="qsMsg"></div><button class="qrbtn" onclick="resetQuiz()">↺ Retake Quiz</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ASSESSMENT -->
+<section id="assessment" class="dk">
+  <div class="w fi">
+    <div class="slbl">Where Are You?</div>
+    <h2>Skills Assessment — Find Your Level</h2>
+    <p style="color:#777;margin-bottom:26px">Answer 6 questions to get a personalized GenAI skill level and learning recommendation.</p>
+    <div class="abox">
+      <div class="adots" id="aDots">
+        <div class="adot act"></div><div class="adot"></div><div class="adot"></div><div class="adot"></div><div class="adot"></div><div class="adot"></div>
+      </div>
+      <div id="aQWrap">
+        <div class="aq" id="aQ"></div>
+        <div class="asub" id="aSub"></div>
+        <div class="aopts" id="aOpts"></div>
+        <div class="anav"><span class="actr" id="aCtr">1 of 6</span><button class="anext" id="aNext" onclick="nextA()" disabled>Next →</button></div>
+      </div>
+      <div class="ares" id="aResult">
+        <div class="ar-ico" id="arIco"></div>
+        <div class="ar-badge" id="arBadge"></div>
+        <div class="ar-title" id="arTitle"></div>
+        <div class="ar-desc" id="arDesc"></div>
+        <button class="anext" onclick="resetA()">↺ Retake Assessment</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS STRIP -->
+<div class="tstrip">
+  <span class="tsl">Tools referenced</span>
+  <span class="tpill">ChatGPT</span><span class="tpill">Claude</span><span class="tpill">Gemini</span><span class="tpill">Midjourney</span><span class="tpill">DALL·E 3</span><span class="tpill">Stable Diffusion</span><span class="tpill">GitHub Copilot</span><span class="tpill">Suno</span><span class="tpill">ElevenLabs</span><span class="tpill">AlphaFold</span><span class="tpill">Sora</span><span class="tpill">Llama 3</span><span class="tpill">LangChain</span>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 The AI Intelligence Review</span>
+  <span>Written by <strong style="color:var(--gold)">Medicharla Ravi Kiran</strong> &middot; Assisted by <a href="https://claude.ai">Claude</a></span>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+</div>
+
+  </div>
+</div>
+
+<!-- BOOKMARKS PANEL -->
+<div id="bmpanel"><div class="bmhdr">🔖 Bookmarks <span id="bmCount">0</span></div><div id="bmList"><div class="bmempty">Click 🔖 on any section header to bookmark it</div></div></div>
+
+<!-- GLOSSARY POPUP -->
+<div id="gpop"><div id="gpterm"></div><div id="gpdef"></div></div>
+
+<script>
+// ── NAV SCROLL ─────────────────────────────────────
+document.querySelectorAll('#mainnav a[data-t]').forEach(function(a) {
+  a.addEventListener('click', function() {
+    var el = document.getElementById(this.getAttribute('data-t'));
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// ── READING BAR + ACTIVE NAV ───────────────────────
+window.addEventListener('scroll', function() {
+  var d = document.documentElement;
+  document.getElementById('rbar').style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%';
+  var ids = ['intro','what','how','types','tech','models','usecases','advantages','ethics','future','conclusion','resources','projects','roadmap','quiz','assessment'];
+  var cur = '';
+  ids.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 120) cur = id;
+  });
+  document.querySelectorAll('#mainnav a').forEach(function(a) {
+    var on = a.getAttribute('data-t') === cur;
+    a.style.color = on ? 'var(--gold)' : '';
+    a.style.borderBottomColor = on ? 'var(--gold)' : 'transparent';
+  });
+});
+
+// ── TYPING EFFECT ──────────────────────────────────
+(function() {
+  var el = document.getElementById('ttext');
+  if (!el) return;
+  var phrases = ['Intelligent Creativity', 'Machine Imagination', 'Unlimited Possibility', 'Human Augmentation'];
+  var pi = 0, ci = 0, del = false;
+  function tick() {
+    var p = phrases[pi];
+    if (!del) { el.textContent = p.substring(0, ci + 1); ci++; if (ci === p.length) { del = true; setTimeout(tick, 1800); return; } }
+    else { el.textContent = p.substring(0, ci - 1); ci--; if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; } }
+    setTimeout(tick, del ? 55 : 95);
+  }
+  tick();
+})();
+
+// ── FADE IN ────────────────────────────────────────
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+}, { threshold: 0.07, rootMargin: '0px 0px -48px 0px' });
+document.querySelectorAll('.fi').forEach(function(el) { obs.observe(el); });
+
+// ── ANIMATE SCALE BARS ─────────────────────────────
+var sbObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.sbbar').forEach(function(b) {
+        var w = b.getAttribute('data-w');
+        setTimeout(function() { b.style.transition = 'width 1.1s ease'; b.style.width = w; }, 150);
+      });
+      sbObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+var sb = document.getElementById('scaleBars');
+if (sb) sbObs.observe(sb);
+
+// ── ANIMATE ETHICS BARS ────────────────────────────
+var ethObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.eb').forEach(function(b) {
+        var w = b.getAttribute('data-w');
+        setTimeout(function() { b.style.transition = 'width 1s ease'; b.style.width = w; }, 200);
+      });
+      ethObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.ethc').forEach(function(el) { ethObs.observe(el); });
+
+// ── BOOKMARKS ──────────────────────────────────────
+var bms = {};
+function toggleBm() { document.getElementById('bmpanel').classList.toggle('open'); }
+function addBm(id, label, btn) {
+  if (bms[id]) { delete bms[id]; btn.classList.remove('bmd'); btn.textContent = '🔖'; }
+  else { bms[id] = label; btn.classList.add('bmd'); btn.textContent = '★'; }
+  renderBms();
+}
+function renderBms() {
+  var keys = Object.keys(bms);
+  var cnt = document.getElementById('bmcnt');
+  document.getElementById('bmCount').textContent = keys.length;
+  cnt.textContent = keys.length;
+  cnt.style.display = keys.length ? 'flex' : 'none';
+  var list = document.getElementById('bmList');
+  if (!keys.length) { list.innerHTML = '<div class="bmempty">Click 🔖 on any section to bookmark it</div>'; return; }
+  list.innerHTML = keys.map(function(k) { return '<div class="bmitem" onclick="goTo(\'' + k + '\')">📍 ' + bms[k] + '</div>'; }).join('');
+}
+function goTo(id) {
+  document.getElementById('bmpanel').classList.remove('open');
+  var el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+// Add bookmark buttons
+window.addEventListener('DOMContentLoaded', function() {
+  var sects = [
+    {id:'intro',l:'Introduction'},{id:'what',l:'What is GenAI?'},{id:'how',l:'How it Works'},
+    {id:'types',l:'Types of GenAI'},{id:'tech',l:'Core Technologies'},{id:'models',l:'Key Models'},
+    {id:'usecases',l:'Use Cases'},{id:'advantages',l:'Pros & Cons'},{id:'ethics',l:'Ethics'},
+    {id:'future',l:'Future'},{id:'conclusion',l:'Conclusion'},{id:'resources',l:'Resources'},
+    {id:'projects',l:'Projects'},{id:'roadmap',l:'Roadmap'},{id:'quiz',l:'Knowledge Quiz'},{id:'assessment',l:'Skills Assessment'}
+  ];
+  sects.forEach(function(s) {
+    var el = document.getElementById(s.id);
+    if (!el) return;
+    var btn = document.createElement('button');
+    btn.className = 'bmsecbtn';
+    btn.textContent = '🔖';
+    btn.title = 'Bookmark this section';
+    (function(si, sl, sb2) { btn.addEventListener('click', function() { addBm(si, sl, sb2); }); })(s.id, s.l, btn);
+    el.appendChild(btn);
+  });
+  initAssess();
+});
+
+// ── SHARE ──────────────────────────────────────────
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    var btn = document.getElementById('cpbtn');
+    if (btn) { btn.textContent = '✓ Copied!'; setTimeout(function() { btn.textContent = '📋 Copy Link'; }, 2000); }
+  }).catch(function() { alert('Copy this URL: ' + window.location.href); });
+}
+
+// ── GLOSSARY ───────────────────────────────────────
+var gloss = {
+  'LLM': 'Large Language Model — a Transformer-based neural network trained on vast text to generate and understand natural language. Examples: GPT-4, Claude, Gemini.',
+  'Transformer': 'A neural network architecture using self-attention, introduced in 2017. The foundation of all modern LLMs including GPT-4, Claude, and Gemini.',
+  'GAN': 'Generative Adversarial Network — two competing networks (Generator + Discriminator) that together learn to produce realistic synthetic data.',
+  'Diffusion Model': 'A generative model that learns to reverse a noising process, generating images by iteratively denoising from pure random noise guided by a text prompt.',
+  'RLHF': 'Reinforcement Learning from Human Feedback — trains a reward model on human preferences, then fine-tunes the LLM to maximize that reward. Makes models helpful.',
+  'RAG': 'Retrieval-Augmented Generation — retrieves relevant documents and injects them into the prompt, grounding answers in factual context and reducing hallucination.',
+  'Hallucination': 'When an AI model generates plausible-sounding but factually incorrect information with unwarranted confidence.',
+  'Alignment': 'The challenge of ensuring AI systems behave in ways that are safe and beneficial, consistent with human values and intentions, as they become more capable.',
+  'MoE': 'Mixture of Experts — an architecture where different "expert" sub-networks activate for different inputs, enabling massive scale with manageable compute.',
+  'LoRA': 'Low-Rank Adaptation — a parameter-efficient fine-tuning method that adds small trainable matrices to a frozen model, reducing compute costs dramatically.',
+  'Token': 'The basic unit of text processed by an LLM — roughly a word or word-piece. GPT-4 has a context window of ~128,000 tokens.',
+};
+function showG(term, e) {
+  var pop = document.getElementById('gpop');
+  var def = gloss[term];
+  if (!def) return;
+  document.getElementById('gpterm').textContent = term;
+  document.getElementById('gpdef').textContent = def;
+  pop.style.left = Math.min(e.pageX, window.innerWidth - 300) + 'px';
+  pop.style.top = (e.pageY + 13) + 'px';
+  pop.classList.add('open');
+  e.stopPropagation();
+}
+document.addEventListener('click', function() { document.getElementById('gpop').classList.remove('open'); });
+
+// ── QUIZ ───────────────────────────────────────────
+var qA = new Array(10).fill(null);
+function ans(btn, qi, correct) {
+  var card = document.getElementById('qc' + qi);
+  if (card.dataset.done) return;
+  card.dataset.done = '1';
+  var opts = card.querySelectorAll('.qopt');
+  opts.forEach(function(o) { o.disabled = true; });
+  if (correct) { btn.classList.add('correct'); qA[qi] = true; }
+  else {
+    btn.classList.add('wrong'); qA[qi] = false;
+    opts.forEach(function(o) { if (o.getAttribute('onclick').indexOf('true') >= 0) o.classList.add('showc'); });
+  }
+  card.querySelector('.qexp').style.display = 'block';
+  if (qA.every(function(a) { return a !== null; })) showScore();
+}
+function showScore() {
+  var score = qA.filter(Boolean).length;
+  var box = document.getElementById('qScore');
+  box.style.display = 'block';
+  document.getElementById('qsNum').textContent = score + '/10';
+  var m = ['Keep studying — review the blog again! 📖', 'Good effort! Review the sections you missed.', 'Solid knowledge! You know your GenAI. 👍', 'Excellent! You really absorbed this! 🎉', 'Perfect score! You are a GenAI expert! 🏆'];
+  document.getElementById('qsMsg').textContent = score <= 2 ? m[0] : score <= 4 ? m[1] : score <= 6 ? m[2] : score <= 8 ? m[3] : m[4];
+  box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+function resetQuiz() {
+  qA = new Array(10).fill(null);
+  document.querySelectorAll('.qopt').forEach(function(o) { o.classList.remove('correct', 'wrong', 'showc'); o.disabled = false; });
+  document.querySelectorAll('.qcard').forEach(function(c) { delete c.dataset.done; });
+  document.querySelectorAll('.qexp').forEach(function(e) { e.style.display = 'none'; });
+  document.getElementById('qScore').style.display = 'none';
+}
+
+// ── ASSESSMENT ─────────────────────────────────────
+var aQs = [
+  {q:'Have you ever written a Python script before?', sub:'Be honest — this calibrates your level accurately', opts:['Never touched Python','A few basic scripts','Comfortable with Python','I write Python daily']},
+  {q:'Have you used any AI tool or API (ChatGPT, Claude, Copilot)?', sub:'Any hands-on AI experience counts', opts:['Never','Chatted with ChatGPT a few times','Built something small with an API','Built production AI-powered apps']},
+  {q:'How familiar are you with neural networks?', sub:'Conceptual understanding is fine', opts:['No idea what they are','I know the basic concept','I understand backprop & training','I can implement them from scratch']},
+  {q:'How familiar are you with the Transformer architecture?', sub:'Not the movie!', opts:['Never heard of it','I know it exists','I understand attention mechanisms','I can explain it in depth']},
+  {q:'Have you built a machine learning project before?', sub:'Any kind counts — classification, NLP, etc.', opts:['No, not yet','Started tutorials but unfinished','Completed 1–2 small projects','Multiple deployed projects']},
+  {q:'What is your main goal with Generative AI?', sub:'This personalizes your recommendation', opts:['Just curious / learning','Build personal projects','Get a job in AI','Start an AI business']}
+];
+var aIdx = 0, aScores = [];
+function initAssess() {
+  aIdx = 0; aScores = [];
+  document.getElementById('aQWrap').style.display = 'block';
+  document.getElementById('aResult').style.display = 'none';
+  renderA();
+}
+function renderA() {
+  if (aIdx >= aQs.length) { showAResult(); return; }
+  var q = aQs[aIdx];
+  document.getElementById('aQ').textContent = q.q;
+  document.getElementById('aSub').textContent = q.sub;
+  document.getElementById('aCtr').textContent = (aIdx + 1) + ' of 6';
+  document.getElementById('aNext').disabled = true;
+  var opts = document.getElementById('aOpts');
+  opts.innerHTML = q.opts.map(function(o, i) { return '<button class="aopt" onclick="selA(this,' + i + ')">' + o + '</button>'; }).join('');
+  document.querySelectorAll('.adot').forEach(function(d, i) {
+    d.classList.remove('act', 'dn');
+    if (i < aIdx) d.classList.add('dn');
+    if (i === aIdx) d.classList.add('act');
+  });
+}
+function selA(btn, score) {
+  document.querySelectorAll('.aopt').forEach(function(o) { o.classList.remove('sel'); });
+  btn.classList.add('sel');
+  aScores[aIdx] = score;
+  document.getElementById('aNext').disabled = false;
+}
+function nextA() {
+  if (aScores[aIdx] === undefined) return;
+  aIdx++; renderA();
+}
+function showAResult() {
+  document.getElementById('aQWrap').style.display = 'none';
+  document.getElementById('aResult').style.display = 'block';
+  var total = aScores.reduce(function(a, b) { return a + b; }, 0);
+  var pct = total / (aQs.length * 3);
+  var ico, badge, col, title, desc;
+  if (pct < 0.25) { ico = '🌱'; badge = 'Beginner'; col = 'var(--green)'; title = "You're at the Starting Line"; desc = 'Start with Phase 1 of the Roadmap — Python basics and the fast.ai course. Build Projects 1–4. You have an exciting journey ahead!'; }
+  else if (pct < 0.5) { ico = '📚'; badge = 'Early Learner'; col = 'var(--accent2)'; title = 'Building Your Foundation'; desc = 'Good start! Strengthen Python, take the HuggingFace NLP course, and build Project 5 (RAG Q&A app). Focus on Phases 2–3 of the Roadmap.'; }
+  else if (pct < 0.75) { ico = '⚙️'; badge = 'Intermediate'; col = 'var(--gold)'; title = 'Making Real Progress!'; desc = 'Solid foundation! Go deeper — fine-tuning with LoRA, LangChain agents, and Projects 6–9. Phases 3–4 of the Roadmap are your focus.'; }
+  else { ico = '🚀'; badge = 'Advanced'; col = 'var(--accent)'; title = 'Near Expert Level!'; desc = 'Impressive! Focus on production — Docker, FastAPI, evaluation frameworks, and open-source contributions. Complete advanced projects and launch something real.'; }
+  document.getElementById('arIco').textContent = ico;
+  document.getElementById('arBadge').textContent = badge;
+  document.getElementById('arBadge').style.background = col + '22';
+  document.getElementById('arBadge').style.color = col;
+  document.getElementById('arTitle').textContent = title;
+  document.getElementById('arDesc').textContent = desc;
+}
+function resetA() { initAssess(); }
+
+// ── ROADMAP ────────────────────────────────────────
+function tick(el) {
+  el.classList.toggle('done');
+  el.textContent = el.classList.contains('done') ? '✓' : '';
+  var total = document.querySelectorAll('.rchk').length;
+  var done = document.querySelectorAll('.rchk.done').length;
+  var pct = Math.round(done / total * 100);
+  var bar = document.getElementById('rmBar');
+  var lbl = document.getElementById('rmPct');
+  if (bar) bar.style.width = pct + '%';
+  if (lbl) lbl.textContent = done + ' / ' + total + ' skills';
+}
+</script>
+</body>
+</html>
